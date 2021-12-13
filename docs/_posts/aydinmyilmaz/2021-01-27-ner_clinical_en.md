@@ -7,6 +7,7 @@ date: 2021-01-27
 task: Named Entity Recognition
 language: en
 edition: Spark NLP for Healthcare 2.7.2
+spark_version: 2.4
 tags: [en, clinical, ner, licensed]
 supported: true
 article_header:
@@ -23,8 +24,8 @@ Pretrained named entity recognition deep learning model for clinical terms. The 
 `Problem`, `Test`, `Treatment`
 
 {:.btn-box}
-<button class="button button-orange" disabled>Live Demo</button>
-[Open in Colab](https://colab.research.google.com/github/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/Certification_Trainings/Healthcare/1.Clinical_Named_Entity_Recognition_Model.ipynb){:.button.button-orange.button-orange-trans.co.button-icon}
+[Live Demo](https://demo.johnsnowlabs.com/healthcare/NER_CLINICAL/){:.button.button-orange}
+[Open in Colab](https://github.com/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/Certification_Trainings/Healthcare/1.Clinical_Named_Entity_Recognition_Model.ipynb){:.button.button-orange.button-orange-trans.co.button-icon}
 [Download](https://s3.amazonaws.com/auxdata.johnsnowlabs.com/clinical/models/ner_clinical_en_2.7.2_2.4_1611751979087.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
 
 ## How to use

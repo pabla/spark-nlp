@@ -200,6 +200,7 @@ exclude:
   - /screenshots
   - /test
   - /vendor
+  - /_frontend
 
 defaults:
   ## docs
@@ -208,8 +209,6 @@ defaults:
     values:    
       layout: article
       nav_key: docs
-      sidebar:
-        nav: docs-en
       aside:
         toc: true  
       license: false

@@ -17,17 +17,14 @@
 package com.johnsnowlabs.nlp.pretrained
 
 import com.johnsnowlabs.nlp.pretrained.ResourceType.ResourceType
-import com.johnsnowlabs.util.Version
+import com.johnsnowlabs.util.{JsonParser, Version}
+import org.json4s.ext.EnumNameSerializer
+import org.json4s.jackson.Serialization
+import org.json4s.jackson.Serialization.write
+import org.json4s.{Formats, NoTypeHints}
 
 import java.io.{FileWriter, InputStream}
 import java.sql.Timestamp
-
-import org.json4s.{Formats, NoTypeHints}
-import org.json4s.ext.EnumNameSerializer
-import org.json4s.jackson.JsonMethods.parse
-import org.json4s.jackson.Serialization
-import org.json4s.jackson.Serialization.write
-
 import scala.io.Source
 
 
@@ -43,7 +40,7 @@ case class ResourceMetadata
   category: Option[ResourceType] = Some(ResourceType.NOT_DEFINED),
   checksum: String = "",
   annotator: Option[String] = None
-) {
+) extends Ordered[ResourceMetadata] {
 
 
   lazy val key: String = {
@@ -67,6 +64,28 @@ case class ResourceMetadata
   private def t(time: Timestamp): String = {
     time.getTime.toString
   }
+
+  override def compare(that: ResourceMetadata): Int = {
+
+    var value: Option[Int] = None
+
+    if (this.sparkVersion == that.sparkVersion && this.libVersion == that.libVersion) {
+      value = Some(0)
+    }
+
+    if (this.sparkVersion == that.sparkVersion) {
+      if (this.libVersion.get.toFloat > that.libVersion.get.toFloat) {
+        value = Some(1)
+      } else value = Some(-1)
+    } else {
+      if (this.sparkVersion.get.toFloat > that.sparkVersion.get.toFloat) {
+        value = Some(1)
+      } else value = Some(-1)
+    }
+
+    value.get
+  }
+
 }
 
 
@@ -78,22 +97,22 @@ object ResourceMetadata {
   }
 
   def parseJson(json: String): ResourceMetadata = {
-    val parsed = parse(json)
-    parsed.extract[ResourceMetadata]
+    JsonParser.formats = formats
+    JsonParser.parseObject[ResourceMetadata](json)
   }
 
   def resolveResource(candidates: List[ResourceMetadata],
                       request: ResourceRequest): Option[ResourceMetadata] = {
 
-    candidates
-      .filter(item => item.readyToUse
+    val compatibleCandidates = candidates
+      .filter(item => item.readyToUse && item.libVersion.isDefined && item.sparkVersion.isDefined
         && item.name == request.name
         && (request.language.isEmpty || item.language.isEmpty || request.language.get == item.language.get)
         && Version.isCompatible(request.libVersion, item.libVersion)
         && Version.isCompatible(request.sparkVersion, item.sparkVersion)
       )
-      .sortBy(item => item.time.getTime)
-      .lastOption
+
+    compatibleCandidates.sorted.lastOption
   }
 
   def readResources(file: String): List[ResourceMetadata] = {

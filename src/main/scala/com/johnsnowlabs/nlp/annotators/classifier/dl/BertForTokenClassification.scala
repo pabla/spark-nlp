@@ -19,10 +19,8 @@ package com.johnsnowlabs.nlp.annotators.classifier.dl
 import com.johnsnowlabs.ml.tensorflow._
 import com.johnsnowlabs.nlp._
 import com.johnsnowlabs.nlp.annotators.common._
-import com.johnsnowlabs.nlp.annotators.tokenizer.wordpiece.{BasicTokenizer, WordpieceEncoder}
 import com.johnsnowlabs.nlp.serialization.MapFeature
 import com.johnsnowlabs.nlp.util.io.{ExternalResource, ReadAs, ResourceHelper}
-
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.ml.param.{IntArrayParam, IntParam}
 import org.apache.spark.ml.util.Identifiable
@@ -85,7 +83,9 @@ import java.io.File
  * +------------------------------------------------------------------------------------+
  * }}}
  *
- * @see [[BertForTokenClassification]] for sentence-level embeddings
+ * @see [[BertForSequenceClassification]] for sentence-level classification
+ * @see [[com.johnsnowlabs.nlp.embeddings.BertEmbeddings BertEmbeddings]] for token-level embeddings
+ * @see [[com.johnsnowlabs.nlp.annotator.BertSentenceEmbeddings BertSentenceEmbeddings]] for sentence-level embeddings
  * @see [[https://nlp.johnsnowlabs.com/docs/en/annotators Annotators Main Page]] for a list of transformer based classifiers
  * @param uid required uid for storing annotator to disk
  * @groupname anno Annotator types
@@ -218,7 +218,8 @@ class BertForTokenClassification(override val uid: String)
             sentenceEndTokenId,
             configProtoBytes = getConfigProtoBytes,
             tags = getLabels,
-            signatures = getSignatures
+            signatures = getSignatures,
+            $$(vocabulary)
           )
         )
       )
@@ -247,25 +248,6 @@ class BertForTokenClassification(override val uid: String)
     caseSensitive -> true
   )
 
-  def tokenizeWithAlignment(tokens: Seq[TokenizedSentence]): Seq[WordpieceTokenizedSentence] = {
-    val basicTokenizer = new BasicTokenizer($(caseSensitive))
-    val encoder = new WordpieceEncoder($$(vocabulary))
-
-    tokens.map { tokenIndex =>
-      // filter empty and only whitespace tokens
-      val bertTokens = tokenIndex.indexedTokens.filter(x => x.token.nonEmpty && !x.token.equals(" ")).map { token =>
-        val content = if ($(caseSensitive)) token.token else token.token.toLowerCase()
-        val sentenceBegin = token.begin
-        val sentenceEnd = token.end
-        val sentenceInedx = tokenIndex.sentenceIndex
-        val result = basicTokenizer.tokenize(Sentence(content, sentenceBegin, sentenceEnd, sentenceInedx))
-        if (result.nonEmpty) result.head else IndexedToken("")
-      }
-      val wordpieceTokens = bertTokens.flatMap(token => encoder.encode(token)).take($(maxSentenceLength))
-      WordpieceTokenizedSentence(wordpieceTokens)
-    }
-  }
-
   /**
    * takes a document and annotations and produces new annotations of this annotator's annotation type
    *
@@ -278,13 +260,13 @@ class BertForTokenClassification(override val uid: String)
     ).toArray
     /*Return empty if the real tokens are empty*/
     if (batchedTokenizedSentences.nonEmpty) batchedTokenizedSentences.map(tokenizedSentences => {
-      val tokenized = tokenizeWithAlignment(tokenizedSentences)
 
       getModelIfNotSet.predict(
-        tokenized,
         tokenizedSentences,
         $(batchSize),
-        $(maxSentenceLength)
+        $(maxSentenceLength),
+        $(caseSensitive),
+        getLabels
       )
     }) else {
       Seq(Seq.empty[Annotation])

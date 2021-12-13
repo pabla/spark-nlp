@@ -7,6 +7,7 @@ date: 2021-01-28
 task: De-identification
 language: en
 edition: Spark NLP for Healthcare 2.7.2
+spark_version: 2.4
 tags: [en, deidentify, clinical, licensed]
 supported: true
 article_header:
@@ -20,7 +21,7 @@ Deidentify (DL) is a deidentification model. It identifies instances of protecte
 
 {:.btn-box}
 <button class="button button-orange" disabled>Live Demo</button>
-[Open in Colab](https://github.com/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/Certification_Trainings/Healthcare/4.Clinical_DeIdentificiation.ipynb){:.button.button-orange.button-orange-trans.co.button-icon}
+[Open in Colab](https://github.com/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/Certification_Trainings/Healthcare/4.1.Pretrained_Clinical_DeIdentificiation.ipynb){:.button.button-orange.button-orange-trans.co.button-icon}
 [Download](https://s3.amazonaws.com/auxdata.johnsnowlabs.com/clinical/models/deidentify_dl_en_2.7.2_2.4_1611831975581.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
 
 ## How to use

@@ -32,6 +32,7 @@ Check out the [Spark NLP Annotators page](https://nlp.johnsnowlabs.com/docs/en/a
 {% include templates/licensed_table_entry.md  name="Chunk2Token" summary="A feature transformer that converts the input array of strings (annotatorType CHUNK) into an array of chunk-based tokens (annotatorType TOKEN)."%}
 {% include templates/licensed_table_entry.md  name="ChunkEntityResolver" summary="Returns a normalized entity for a particular trained ontology / curated dataset (e.g. ICD-10, RxNorm, SNOMED etc)."%}
 {% include templates/licensed_table_entry.md  name="ChunkFilterer" summary="Filters entities coming from CHUNK annotations."%}
+{% include templates/licensed_table_entry.md  name="ChunkKeyPhraseExtraction" summary="Uses Bert Sentence Embeddings to determine the most relevant key phrases describing a text."%}
 {% include templates/licensed_table_entry.md  name="ChunkMerge" summary="Merges entities coming from different CHUNK annotations."%}
 {% include templates/licensed_table_entry.md  name="ContextualParser" summary="Extracts entity from a document based on user defined rules."%}
 {% include templates/licensed_table_entry.md  name="DeIdentification" summary="Deidentifies Input Annotations of types DOCUMENT, TOKEN and CHUNK, by either masking or obfuscating the given CHUNKS."%}
@@ -43,6 +44,7 @@ Check out the [Spark NLP Annotators page](https://nlp.johnsnowlabs.com/docs/en/a
 {% include templates/licensed_table_entry.md  name="NerChunker" summary="Extracts phrases that fits into a known pattern using the NER tags."%}
 {% include templates/licensed_table_entry.md  name="NerConverterInternal" summary="Converts a IOB or IOB2 representation of NER to a user-friendly one, by associating the tokens of recognized entities and their label."%}
 {% include templates/licensed_table_entry.md  name="NerDisambiguator" summary="Links words of interest, such as names of persons, locations and companies, from an input text document to a corresponding unique entity in a target Knowledge Base (KB)."%}
+{% include templates/licensed_table_entry.md  name="MedicalNer" summary="This Named Entity recognition annotator is a generic NER model based on Neural Networks.."%}
 {% include templates/licensed_table_entry.md  name="RENerChunksFilter" summary="Filters and outputs combinations of relations between extracted entities, for further processing."%}
 {% include templates/licensed_table_entry.md  name="ReIdentification" summary="Reidentifies obfuscated entities by DeIdentification."%}
 {% include templates/licensed_table_entry.md  name="RelationExtraction" summary="Extracts and classifies instances of relations between named entities."%}

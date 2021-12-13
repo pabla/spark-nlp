@@ -7,6 +7,7 @@ date: 2021-01-29
 task: Named Entity Recognition
 language: en
 edition: Spark NLP for Healthcare 2.7.1
+spark_version: 2.4
 tags: [ner, en, licensed, clinical]
 supported: true
 article_header:
@@ -24,7 +25,7 @@ Pretrained named entity recognition deep learning model for Drugs. The model com
 
 
 {:.btn-box}
-<button class="button button-orange" disabled>Live Demo</button>
+[Live Demo](https://demo.johnsnowlabs.com/healthcare/NER_POSOLOGY/){:.button.button-orange}
 [Open in Colab](https://githubtocolab.com/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/Certification_Trainings/Healthcare/1.Clinical_Named_Entity_Recognition_Model.ipynb){:.button.button-orange.button-orange-trans.co.button-icon}{:target="_blank"}
 [Download](https://s3.amazonaws.com/auxdata.johnsnowlabs.com/clinical/models/ner_drugs_large_en_2.6.0_2.4_1603915964112.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
 

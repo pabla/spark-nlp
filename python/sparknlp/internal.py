@@ -239,7 +239,7 @@ class _ShowUnCategorizedResources(ExtendedJavaWrapper):
 
 
 class _ShowPublicPipelines(ExtendedJavaWrapper):
-    def __init__(self,lang, version):
+    def __init__(self, lang, version):
         super(_ShowPublicPipelines, self).__init__(
             "com.johnsnowlabs.nlp.pretrained.PythonResourceDownloader.showPublicPipelines", lang, version)
 
@@ -248,6 +248,7 @@ class _ShowPublicModels(ExtendedJavaWrapper):
     def __init__(self, annotator, lang, version):
         super(_ShowPublicModels, self).__init__(
             "com.johnsnowlabs.nlp.pretrained.PythonResourceDownloader.showPublicModels", annotator, lang, version)
+
 
 class _ShowAvailableAnnotators(ExtendedJavaWrapper):
     def __init__(self):
@@ -438,4 +439,17 @@ class _LongformerTokenClassifierLoader(ExtendedJavaWrapper):
     def __init__(self, path, jspark):
         super(_LongformerTokenClassifierLoader, self).__init__(
             "com.johnsnowlabs.nlp.annotators.classifier.dl.LongformerForTokenClassification.loadSavedModel", path,
+            jspark)
+
+
+class _BertSequenceClassifierLoader(ExtendedJavaWrapper):
+    def __init__(self, path, jspark):
+        super(_BertSequenceClassifierLoader, self).__init__(
+            "com.johnsnowlabs.nlp.annotators.classifier.dl.BertForSequenceClassification.loadSavedModel", path, jspark)
+
+
+class _DistilBertSequenceClassifierLoader(ExtendedJavaWrapper):
+    def __init__(self, path, jspark):
+        super(_DistilBertSequenceClassifierLoader, self).__init__(
+            "com.johnsnowlabs.nlp.annotators.classifier.dl.DistilBertForSequenceClassification.loadSavedModel", path,
             jspark)

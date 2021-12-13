@@ -9,6 +9,7 @@ repository: clinical/models
 date: 2020-09-24
 task: Relation Extraction
 edition: Spark NLP for Healthcare 2.5.5
+spark_version: 2.4
 tags: [clinical,licensed,relation extraction,en]
 supported: true
 article_header:
@@ -50,7 +51,7 @@ Relation Extraction model based on syntactic features using deep learning. Model
 
 reModel = RelationExtractionModel.pretrained("re_clinical","en","clinical/models")\
     .setInputCols(["word_embeddings","chunk","pos","dependency"])\
-    .setOutput("relations")
+    .setOutputCol("relations")
 
 pipeline = Pipeline(stages=[documenter, sentencer, tokenizer, words_embedder, pos_tagger, ner_tagger, ner_chunker, dependency_parser, reModel])
 model = pipeline.fit(spark.createDataFrame([[""]]).toDF("text"))

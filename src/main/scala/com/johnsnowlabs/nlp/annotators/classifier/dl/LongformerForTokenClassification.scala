@@ -19,7 +19,6 @@ package com.johnsnowlabs.nlp.annotators.classifier.dl
 import com.johnsnowlabs.ml.tensorflow._
 import com.johnsnowlabs.nlp._
 import com.johnsnowlabs.nlp.annotators.common._
-import com.johnsnowlabs.nlp.annotators.tokenizer.bpe.BpeTokenizer
 import com.johnsnowlabs.nlp.serialization.MapFeature
 import com.johnsnowlabs.nlp.util.io.{ExternalResource, ReadAs, ResourceHelper}
 
@@ -85,7 +84,7 @@ import java.io.File
  * +------------------------------------------------------------------------------------+
  * }}}
  *
- * @see [[LongformerForTokenClassification]] for sentence-level embeddings
+ * @see [[com.johnsnowlabs.nlp.embeddings.LongformerEmbeddings LongformerEmbeddings]] for token-level embeddings
  * @see [[https://nlp.johnsnowlabs.com/docs/en/annotators Annotators Main Page]] for a list of transformer based classifiers
  * @param uid required uid for storing annotator to disk
  * @groupname anno Annotator types
@@ -233,7 +232,9 @@ class LongformerForTokenClassification(override val uid: String)
             padTokenId,
             configProtoBytes = getConfigProtoBytes,
             tags = getLabels,
-            signatures = getSignatures
+            signatures = getSignatures,
+            $$(merges),
+            $$(vocabulary)
           )
         )
       )
@@ -262,29 +263,6 @@ class LongformerForTokenClassification(override val uid: String)
     caseSensitive -> true
   )
 
-  def tokenizeWithAlignment(tokens: Seq[TokenizedSentence]): Seq[WordpieceTokenizedSentence] = {
-    val bpeTokenizer = BpeTokenizer.forModel(
-      "roberta",
-      merges = $$(merges),
-      vocab = $$(vocabulary),
-      padWithSentenceTokens = false
-    )
-
-    tokens.map { tokenIndex =>
-      // filter empty and only whitespace tokens
-      val bertTokens = tokenIndex.indexedTokens.filter(x => x.token.nonEmpty && !x.token.equals(" ")).map { token =>
-        val content = if ($(caseSensitive)) token.token else token.token.toLowerCase()
-        val sentenceBegin = token.begin
-        val sentenceEnd = token.end
-        val sentenceInedx = tokenIndex.sentenceIndex
-        val result = bpeTokenizer.tokenize(Sentence(content, sentenceBegin, sentenceEnd, sentenceInedx))
-        if (result.nonEmpty) result.head else IndexedToken("")
-      }
-      val wordpieceTokens = bertTokens.flatMap(token => bpeTokenizer.encode(token)).take($(maxSentenceLength))
-      WordpieceTokenizedSentence(wordpieceTokens)
-    }
-  }
-
   /**
    * takes a document and annotations and produces new annotations of this annotator's annotation type
    *
@@ -297,13 +275,13 @@ class LongformerForTokenClassification(override val uid: String)
     ).toArray
     /*Return empty if the real tokens are empty*/
     if (batchedTokenizedSentences.nonEmpty) batchedTokenizedSentences.map(tokenizedSentences => {
-      val tokenized = tokenizeWithAlignment(tokenizedSentences)
 
       getModelIfNotSet.predict(
-        tokenized,
         tokenizedSentences,
         $(batchSize),
-        $(maxSentenceLength)
+        $(maxSentenceLength),
+        $(caseSensitive),
+        getLabels
       )
     }) else {
       Seq(Seq.empty[Annotation])

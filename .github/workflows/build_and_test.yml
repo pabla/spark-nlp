@@ -10,13 +10,14 @@ on:
     branches:
       - 'master'
       - '*release*'
+      - 'release/**'
       - 'main'
   pull_request:
     paths-ignore:
       - 'docs/**'
       - 'conda/**'
       - 'scripts/**'
-      - 'example/**'      
+      - 'example/**'
     branches:
       - 'master'
       - 'main'

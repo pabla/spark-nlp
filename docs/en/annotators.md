@@ -56,8 +56,10 @@ There are two types of Annotators:
 {% include templates/anno_table_entry.md path="" name="DateMatcher" summary="Matches standard date formats into a provided format."%}
 {% include templates/anno_table_entry.md path="" name="DependencyParser" summary="Unlabeled parser that finds a grammatical relation between two words in a sentence."%}
 {% include templates/anno_table_entry.md path="" name="Doc2Chunk" summary="Converts `DOCUMENT` type annotations into `CHUNK` type with the contents of a `chunkCol`."%}
+{% include templates/anno_table_entry.md path="" name="Doc2Vec" summary="Word2Vec model that creates vector representations of words in a text corpus."%}
 {% include templates/anno_table_entry.md path="" name="DocumentAssembler" summary="Prepares data into a format that is processable by Spark NLP. This is the entry point for every Spark NLP pipeline."%}
 {% include templates/anno_table_entry.md path="" name="DocumentNormalizer" summary="Annotator which normalizes raw text from tagged text, e.g. scraped web pages or xml documents, from document type columns into Sentence."%}
+{% include templates/anno_table_entry.md path="" name="EntityRuler" summary="Fits an Annotator to match exact strings or regex patterns provided in a file against a Document and assigns them an named entity."%}
 {% include templates/anno_table_entry.md path="" name="EmbeddingsFinisher" summary="Extracts embeddings from Annotations into a more easily usable form."%}
 {% include templates/anno_table_entry.md path="" name="Finisher" summary="Converts annotation results into a format that easier to use. It is useful to extract the results from Spark NLP Pipelines."%}
 {% include templates/anno_table_entry.md path="" name="GraphExtraction" summary="Extracts a dependency graph between entities."%}
@@ -93,7 +95,7 @@ There are two types of Annotators:
 {% include templates/anno_table_entry.md path="" name="ViveknSentiment" summary="Sentiment analyser inspired by the algorithm by Vivek Narayanan."%}
 {% include templates/anno_table_entry.md path="" name="WordEmbeddings" summary="Word Embeddings lookup annotator that maps tokens to vectors."%}
 {% include templates/anno_table_entry.md path="" name="WordSegmenter" summary="Tokenizes non-english or non-whitespace separated texts."%}
-{% include templates/anno_table_entry.md path="" name="Yake" summary="Unsupervised, Corpus-Independent, Domain and Language-Independent and Single-Document keyword extraction."%}
+{% include templates/anno_table_entry.md path="" name="YakeKeywordExtraction" summary="Unsupervised, Corpus-Independent, Domain and Language-Independent and Single-Document keyword extraction."%}
 
 ## Available Transformers
 Additionally, these transformers are available to generate embeddings.
@@ -104,10 +106,12 @@ Additionally, these transformers are available to generate embeddings.
 {% include templates/anno_table_entry.md path="./transformers" name="AlbertEmbeddings" summary="ALBERT: A Lite BERT for Self-supervised Learning of Language Representations"%}
 {% include templates/anno_table_entry.md path="./transformers" name="AlbertForTokenClassification" summary="AlbertForTokenClassification can load ALBERT Models with a token classification head on top (a linear layer on top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) tasks."%}
 {% include templates/anno_table_entry.md path="./transformers" name="BertEmbeddings" summary="Token-level embeddings using BERT. BERT (Bidirectional Encoder Representations from Transformers) provides dense vector representations for natural language by using a deep, pre-trained neural network with the Transformer architecture."%}
+{% include templates/anno_table_entry.md path="./transformers" name="BertForSequenceClassification" summary="Bert Models with sequence classification/regression head on top."%}
 {% include templates/anno_table_entry.md path="./transformers" name="BertForTokenClassification" summary="BertForTokenClassification can load Bert Models with a token classification head on top (a linear layer on top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) tasks."%}
 {% include templates/anno_table_entry.md path="./transformers" name="BertSentenceEmbeddings" summary="Sentence-level embeddings using BERT. BERT (Bidirectional Encoder Representations from Transformers) provides dense vector representations for natural language by using a deep, pre-trained neural network with the Transformer architecture."%}
 {% include templates/anno_table_entry.md path="./transformers" name="DistilBertEmbeddings" summary="DistilBERT is a small, fast, cheap and light Transformer model trained by distilling BERT base."%}
-{% include templates/anno_table_entry.md path="./transformers" name="DistilBertForTokenClassification" summary="DistilBertForTokenClassification can load Bert Models with a token classification head on top (a linear layer on top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) tasks."%}
+{% include templates/anno_table_entry.md path="./transformers" name="DistilBertForSequenceClassification" summary="DistilBertForSequenceClassification can load DistilBERT Models with sequence classification/regression head on top (a linear layer on top of the pooled output) e.g. for multi-class document classification tasks."%}
+{% include templates/anno_table_entry.md path="./transformers" name="DistilBertForTokenClassification" summary="DistilBertForTokenClassification can load DistilBERT Models with a token classification head on top (a linear layer on top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) tasks."%}
 {% include templates/anno_table_entry.md path="./transformers" name="ElmoEmbeddings" summary="Word embeddings from ELMo (Embeddings from Language Models), a language model trained on the 1 Billion Word Benchmark."%}
 {% include templates/anno_table_entry.md path="./transformers" name="LongformerEmbeddings" summary="Longformer is a BERT-like model started from the RoBERTa checkpoint and pretrained for MLM on long documents."%}
 {% include templates/anno_table_entry.md path="./transformers" name="LongformerForTokenClassification" summary="LongformerForTokenClassification can load Longformer Models with a token classification head on top (a linear layer on top of the hidden-states output) e.g. for Named-Entity-Recognition (NER) tasks."%}

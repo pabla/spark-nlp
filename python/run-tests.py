@@ -53,11 +53,13 @@ unittest.TextTestRunner().run(NGramGeneratorTestSpec())
 unittest.TextTestRunner().run(ChunkEmbeddingsTestSpec())
 unittest.TextTestRunner().run(EmbeddingsFinisherTestSpec())
 unittest.TextTestRunner().run(NerDLModelTestSpec())
-unittest.TextTestRunner().run(YakeModelTestSpec())
+unittest.TextTestRunner().run(YakeKeywordExtractionTestSpec())
 unittest.TextTestRunner().run(SentenceDetectorDLTestSpec())
 unittest.TextTestRunner().run(WordSegmenterTestSpec())
 unittest.TextTestRunner().run(LanguageDetectorDLTestSpec())
 unittest.TextTestRunner().run(GraphExtractionTestSpec())
+unittest.TextTestRunner().run(EntityRulerTestSpec())
+unittest.TextTestRunner().run(Doc2VecTestSpec())
 
 # Should be locally tested
 # print("Running ElmoEmbeddingsTestSpec")
@@ -97,6 +99,7 @@ unittest.TextTestRunner().run(GraphExtractionTestSpec())
 # unittest.TextTestRunner().run(AlbertForTokenClassificationTestSpec())
 # unittest.TextTestRunner().run(XlnetForTokenClassificationTestSpec())
 # unittest.TextTestRunner().run(LongformerForTokenClassificationTestSpec())
+# unittest.TextTestRunner().run(DistilBertForSequenceClassificationTestSpec())
 
 # Misc tests
 

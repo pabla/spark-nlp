@@ -87,5 +87,19 @@ data:
             url: https://demo.johnsnowlabs.com/ocr/DEID_PDF_GDPR
           - text: Colab Netbook
             type: blue_btn
-            url: https://colab.research.google.com/github/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/streamlit_notebooks/ocr/DEID_PDF.ipynb           
+            url: https://colab.research.google.com/github/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/streamlit_notebooks/ocr/DEID_PDF.ipynb   
+        - title: Detect PHI Entities for Deidentification
+          id: detect_phi_entities
+          image: 
+              src: /assets/images/Detect_PHI_Entities.svg
+          image2: 
+              src: /assets/images/Detect_PHI_Entities_f.svg
+          excerpt: This demo shows how Protected Health Information (PHI) that may need to be de-identified can be extracted using Spark NLP model.
+          actions:
+          - text: Live Demo
+            type: normal
+            url: https://demo.johnsnowlabs.com/healthcare/NER_DEMOGRAPHICS/
+          - text: Colab Netbook
+            type: blue_btn
+            url: https://colab.research.google.com/github/JohnSnowLabs/spark-nlp-workshop/blob/master/tutorials/streamlit_notebooks/healthcare/NER_BERT_TOKEN_CLASSIFIER.ipynb
 ---

@@ -1364,7 +1364,7 @@ class MultiClassifierDLTestSpec(unittest.TestCase):
         print(multi_classsifierdl_model.getClasses())
 
 
-class YakeModelTestSpec(unittest.TestCase):
+class YakeKeywordExtractionTestSpec(unittest.TestCase):
     def setUp(self):
         self.data = SparkContextForTest.spark.createDataFrame([
             [1,
@@ -1406,7 +1406,7 @@ class YakeModelTestSpec(unittest.TestCase):
             .setOutputCol("token") \
             .setContextChars(["(", ")", "?", "!", ".", ","])
 
-        keywords = YakeModel() \
+        keywords = YakeKeywordExtraction() \
             .setInputCols("token") \
             .setOutputCol("keywords") \
             .setMinNGrams(2) \
@@ -1974,6 +1974,88 @@ class LongformerForTokenClassificationTestSpec(unittest.TestCase):
         tokenizer = Tokenizer().setInputCols("document").setOutputCol("token")
 
         token_classifier = LongformerForTokenClassification.pretrained() \
+            .setInputCols(["document", "token"]) \
+            .setOutputCol("ner")
+
+        pipeline = Pipeline(stages=[
+            document_assembler,
+            tokenizer,
+            token_classifier
+        ])
+
+        model = pipeline.fit(self.data)
+        model.transform(self.data).show()
+
+
+class EntityRulerTestSpec(unittest.TestCase):
+
+    def setUp(self):
+        self.data = SparkContextForTest.spark.createDataFrame([["John Snow lives in Winterfell"]]).toDF("text")
+        self.path = os.getcwd() + "/../src/test/resources/entity-ruler/patterns.json"
+
+    def runTest(self):
+        document_assembler = DocumentAssembler().setInputCol("text").setOutputCol("document")
+        tokenizer = Tokenizer().setInputCols("document").setOutputCol("token")
+
+        entity_ruler = EntityRulerApproach() \
+            .setInputCols(["document", "token"]) \
+            .setOutputCol("entity") \
+            .setPatternsResource(self.path)
+
+        pipeline = Pipeline(stages=[document_assembler, tokenizer, entity_ruler])
+        model = pipeline.fit(self.data)
+        model.transform(self.data).show()
+
+
+class Doc2VecTestSpec(unittest.TestCase):
+
+    def setUp(self):
+        self.data = SparkContextForTest.spark.createDataFrame([
+            ["Rare Hendrix song draft sells for almost $17,000. This is my second sentenece! The third one here!"],
+            ["EU rejects German call to boycott British lamb ."],
+            ["TORONTO 1996-08-21"],
+            [" carbon emissions have come down without impinging on our growth . . ."],
+            ["carbon emissions have come down without impinging on our growth .\\u2009.\\u2009."],
+            ["the "],
+            ["  "],
+            [" "]
+        ]).toDF("text")
+
+    def runTest(self):
+        document_assembler = DocumentAssembler().setInputCol("text").setOutputCol("document")
+        tokenizer = Tokenizer().setInputCols("document").setOutputCol("token")
+        doc2vec = Doc2VecApproach() \
+            .setInputCols(["token"]) \
+            .setOutputCol("sentence_embeddings") \
+            .setMaxSentenceLength(512) \
+            .setStepSize(0.025) \
+            .setMinCount(5) \
+            .setVectorSize(300) \
+            .setNumPartitions(1) \
+            .setMaxIter(2) \
+            .setSeed(42) \
+            .setStorageRef("doc2vec_aclImdb")
+
+        pipeline = Pipeline(stages=[document_assembler, tokenizer, doc2vec])
+        model = pipeline.fit(self.data)
+        model.write().overwrite().save("./tmp_model")
+        loaded_model = model.load("./tmp_model")
+        loaded_model.transform(self.data).show()
+
+
+class DistilBertForSequenceClassificationTestSpec(unittest.TestCase):
+    def setUp(self):
+        self.data = SparkContextForTest.spark.read.option("header", "true") \
+            .csv(path="file:///" + os.getcwd() + "/../src/test/resources/embeddings/sentence_embeddings.csv")
+
+    def runTest(self):
+        document_assembler = DocumentAssembler() \
+            .setInputCol("text") \
+            .setOutputCol("document")
+
+        tokenizer = Tokenizer().setInputCols("document").setOutputCol("token")
+
+        token_classifier = DistilBertForSequenceClassification.pretrained() \
             .setInputCols(["document", "token"]) \
             .setOutputCol("ner")
 

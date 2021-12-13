@@ -7,6 +7,7 @@ date: 2020-09-28
 task: Named Entity Recognition
 language: de
 edition: Spark NLP for Healthcare 2.6.0
+spark_version: 2.4
 tags: [ner, clinical, de, licensed]
 supported: true
 article_header:
@@ -36,7 +37,7 @@ Use as part of an nlp pipeline with the following stages: DocumentAssembler, Sen
 word_embeddings = WordEmbeddingsModel.pretrained("w2v_cc_300d","de","clinical/models")\
    .setInputCols(["document","token"])\
    .setOutputCol("embeddings")
-clinical_ner = NerDLModel.pretrained("ner_healthcare", "en", "clinical/models") \
+clinical_ner = NerDLModel.pretrained("ner_healthcare", "de", "clinical/models") \
   .setInputCols(["sentence", "token", "embeddings"]) \
   .setOutputCol("ner")
 ...
@@ -51,7 +52,7 @@ annotations = light_pipeline.fullAnnotate("Das Kleinzellige Bronchialkarzinom (K
 val word_embeddings = WordEmbeddingsModel.pretrained("w2v_cc_300d","de","clinical/models")
    .setInputCols(Array("document","token"))
    .setOutputCol("embeddings")
-val ner = NerDLModel.pretrained("ner_healthcare", "en", "clinical/models") 
+val ner = NerDLModel.pretrained("ner_healthcare", "de", "clinical/models") 
   .setInputCols("sentence", "token", "embeddings") 
   .setOutputCol("ner")
 ...
