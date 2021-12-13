@@ -22,12 +22,12 @@ We used WordEmbeddings (glove_840B_300) model for the embeddings to train this N
 
 ## Predicted Entities
 
-`B-LOC` 
-`I-LOC`
-`B-ORG`
-`I-ORG`
-`B-PER`
-`I-PER`
+- B-LOC
+- I-LOC
+- B-ORG
+- I-ORG
+- B-PER
+- I-PER
 
 {:.btn-box}
 <button class="button button-orange" disabled>Live Demo</button>
@@ -63,7 +63,7 @@ ner_converter = NerConverter() \
     .setOutputCol('entities')
 
 pipeline = Pipeline(stages=[
-    document_assembler, 
+    document_assembler,
     tokenizer,
     embeddings,
     ner_model,
@@ -74,24 +74,24 @@ example = spark.createDataFrame(pd.DataFrame({'text': ['My name is John!']}))
 result = pipeline.fit(example).transform(example)
 ```
 ```scala
-val document_assembler = DocumentAssembler() 
-    .setInputCol("text") 
+val document_assembler = DocumentAssembler()
+    .setInputCol("text")
     .setOutputCol("document")
 
-val tokenizer = Tokenizer() 
-    .setInputCols("document") 
+val tokenizer = Tokenizer()
+    .setInputCols("document")
     .setOutputCol("token")
 
 val embeddings = WordEmbeddingsModel.pretrained("glove_840B_300", "xx")
-    .setInputCols("document", "token") 
+    .setInputCols("document", "token")
     .setOutputCol("embeddings")
 
-val ner_model = NerDLModel.pretrained("ner_wikiner_glove_840B_300", "xx") 
-    .setInputCols("document"', "token", "embeddings") 
+val ner_model = NerDLModel.pretrained("ner_wikiner_glove_840B_300", "xx")
+    .setInputCols("document"', "token", "embeddings")
     .setOutputCol("ner")
 
-val ner_converter = NerConverter() 
-    .setInputCols("document", "token", "ner") 
+val ner_converter = NerConverter()
+    .setInputCols("document", "token", "ner")
     .setOutputCol("entities")
 
 val pipeline = new Pipeline().setStages(Array(document_assembler, tokenizer, embeddings, ner_model, ner_converter))
