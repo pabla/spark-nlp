@@ -1,2 +1,0 @@
-docs/en/licensed_release_notes.md
-docs/en/licensed_release_notes.md
