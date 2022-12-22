@@ -1,0 +1,2 @@
+export ELASTICSEARCH_URL=https://search.modelshub.johnsnowlabs.com/elastic/
+export ELASTICSEARCH_ACCESS_TOKEN=05b1b3254f96a00ef604f16e7fbbfe7c898c0174
