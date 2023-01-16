@@ -5197,9 +5197,11 @@ body {
 html {
   scroll-behavior: smooth; }
 
-.article__content p {
-  margin-top: 0;
-  text-align: justify; }
+.article__content {
+  padding: 0 15px; }
+  .article__content p {
+    margin-top: 0;
+    text-align: justify; }
 
 h1, h2, h3, h4 {
   font-family: 'Montserrat', sans-serif; }
@@ -5835,7 +5837,7 @@ ol.list1 {
 
 .page__sidebar {
   position: fixed;
-  left: -15px;
+  left: 0;
   max-width: 280px;
   top: 70px;
   background: none;
@@ -6914,7 +6916,7 @@ code {
 
 .btn-box-install {
   margin: 0 -10px !important;
-  text-align: left !important; }
+  text-align: center !important; }
   .btn-box-install a {
     margin: 0 10px 10px; }
 
@@ -6922,7 +6924,7 @@ code {
   border-radius: 5px;
   background: #fff;
   border-color: #1E77B7;
-  min-width: 180px;
+  min-width: 170px;
   color: #1E77B7 !important; }
   .button.button-blue:hover, .button-blue.swiper__button:hover {
     border-color: #FF8A00;
@@ -6960,6 +6962,28 @@ code {
       margin: 0 !important; }
   .block-box.with_i {
     flex-direction: row !important; }
+
+.df {
+  display: flex;
+  align-items: center; }
+
+.alab-top-wrapper {
+  display: flex;
+  padding: 40px 20px;
+  justify-content: space-between; }
+  .alab-top-wrapper .block-box-inner {
+    width: 60%;
+    flex: 0 0 60%; }
+    .alab-top-wrapper .block-box-inner h2 {
+      text-align: left;
+      margin: 0 0 25px; }
+    .alab-top-wrapper .block-box-inner img,
+    .alab-top-wrapper .block-box-inner figure {
+      margin: 0; }
+  .alab-top-wrapper .alab-top-image {
+    justify-content: center;
+    width: 40%;
+    flex: 0 0 40%; }
 
 .list3 {
   list-style-type: none;
@@ -7056,6 +7080,27 @@ code {
 .fwn {
   font-weight: 300 !important; }
 
+.input_output_wrapper {
+  display: flex; }
+  .input_output_wrapper .input_output_inner {
+    width: 50%;
+    flex: 0 0 50%;
+    padding: 40px 20px; }
+  .input_output_wrapper .input_output_title {
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 35px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 800;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    color: #1E77B7; }
+  .input_output_wrapper figure {
+    margin: 0; }
+    .input_output_wrapper figure img {
+      height: auto; }
+
 .pagination {
   list-style-type: none;
   display: flex;
@@ -7065,6 +7110,10 @@ code {
     flex-wrap: wrap;
     margin: 0 !important;
     position: relative; }
+    .pagination.pagination_big .owl-stage-outer {
+      text-align: center; }
+      .pagination.pagination_big .owl-stage-outer .owl-stage {
+        display: inline-block; }
     .pagination.pagination_big .owl-stage-outer {
       position: relative;
       z-index: 5; }
@@ -7115,7 +7164,7 @@ code {
 
 .docs-wrapper {
   margin: 0 auto;
-  width: 850px;
+  width: 910px;
   padding: 0 15px; }
   .docs-wrapper.border {
     border: 1px solid #E1F6FF;
@@ -7213,6 +7262,8 @@ code {
       position: relative;
       padding-left: 18px;
       margin-top: 10px; }
+      .docs-wrapper ul li.hide {
+        display: none; }
       .docs-wrapper ul li :first-child {
         margin: 0; }
       .docs-wrapper ul li ul {
@@ -7927,6 +7978,23 @@ code {
     width: 100%;
     margin: 0; }
 
+  .alab-top-wrapper {
+    flex-direction: column-reverse;
+    margin-bottom: 38px; }
+    .alab-top-wrapper .block-box-inner {
+      width: 100%;
+      flex: 0 0 100%; }
+      .alab-top-wrapper .block-box-inner h2 {
+        text-align: center; }
+    .alab-top-wrapper .alab-top-image {
+      margin-bottom: 45px; }
+
+  .article__header {
+    padding: 54px 15px 0; }
+
+  .model-wrap .article__content .table-model {
+    width: 100%; }
+
   .tab-item {
     width: 47%; }
 
@@ -8053,6 +8121,16 @@ code {
     line-height: 24px;
     margin: 0 0 15px; }
 
+  .model-wrap .btn-box .button, .model-wrap .btn-box .swiper__button {
+    min-width: 170px; }
+
+  .input_output_wrapper {
+    flex-direction: column; }
+    .input_output_wrapper .input_output_inner {
+      width: 100%;
+      flex: 0 0 100%;
+      padding: 30px 0; }
+
   .page__sidebar .sidebar-toc {
     padding: 3rem 10px 10rem 10px; }
 
@@ -8144,6 +8222,12 @@ code {
     min-height: 61px;
     font-size: 17px;
     line-height: 19px; }
+
+  .model-wrap .btn-box {
+    flex-direction: column; }
+    .model-wrap .btn-box .button, .model-wrap .btn-box .swiper__button {
+      margin: 0 0 20px;
+      width: 100%; }
 
   .btn-box-install .button.button-blue, .btn-box-install .button-blue.swiper__button {
     min-width: 47%; }
@@ -8262,6 +8346,13 @@ code {
     margin-right: 42px;
     width: 40px;
     height: 40px; }
+
+  .alab-top-wrapper .btn-flex {
+    flex-direction: column;
+    padding-bottom: 0; }
+    .alab-top-wrapper .btn-flex a {
+      width: 100%;
+      margin: 0 0 25px; }
 
   .breadcrambs {
     flex-wrap: wrap; }

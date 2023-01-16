@@ -531,87 +531,92 @@
             <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Spark NLP release notes 1.4.0"><meta itemprop="author" content=""/><div class="js-article-content"><div class="docs-wrapper">
 <div class="layout--article"><!-- start custom article top snippet -->
 
-<!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><h2 id="140">1.4.0</h2>
+<!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><div class="h3-box">
 
-<p>Release date: 23-06-2020</p>
+  <h2 id="section">1.4.0</h2>
 
-<h4 id="overview">Overview</h4>
+  <p>Release date: 23-06-2020</p>
 
-<p>Added support Dicom format and improved support image morphological operations.</p>
+  <h4 id="overview">Overview</h4>
 
-<h4 id="enhancements">Enhancements</h4>
+  <p>Added support Dicom format and improved support image morphological operations.</p>
 
-<ul>
-  <li>Updated <a href="ocr_install#using-start-function">start</a> function. Improved support Spark NLP internal.</li>
-  <li><code class="language-plaintext highlighter-rouge">ImageMorphologyOpening</code> and <code class="language-plaintext highlighter-rouge">ImageErosion</code> are removed.</li>
-  <li>Improved existing transformers for support de-identification Dicom documents.</li>
-  <li>Added possibility to draw filled rectangles to <a href="ocr_pipeline_components#imagedrawregions">ImageDrawRegions</a>.</li>
-</ul>
+  <h4 id="enhancements">Enhancements</h4>
 
-<h4 id="new-features">New Features</h4>
+  <ul>
+    <li>Updated <a href="ocr_install#using-start-function">start</a> function. Improved support Spark NLP internal.</li>
+    <li><code class="language-plaintext highlighter-rouge">ImageMorphologyOpening</code> and <code class="language-plaintext highlighter-rouge">ImageErosion</code> are removed.</li>
+    <li>Improved existing transformers for support de-identification Dicom documents.</li>
+    <li>Added possibility to draw filled rectangles to <a href="ocr_pipeline_components#imagedrawregions">ImageDrawRegions</a>.</li>
+  </ul>
 
-<ul>
-  <li>Support reading and writing Dicom documents.</li>
-  <li>Added <a href="ocr_pipeline_components#imagemorphologyoperation">ImageMorphologyOperation</a> transformer which support:
+  <h4 id="new-features">New Features</h4>
+
+  <ul>
+    <li>Support reading and writing Dicom documents.</li>
+    <li>Added <a href="ocr_pipeline_components#imagemorphologyoperation">ImageMorphologyOperation</a> transformer which support:
  erosion, dilation, opening and closing operations.</li>
-</ul>
+  </ul>
 
-<h4 id="bugfixes">Bugfixes</h4>
+  <h4 id="bugfixes">Bugfixes</h4>
 
-<ul>
-  <li>Fixed issue in <a href="ocr_pipeline_components#imagetotext">ImageToText</a> related to extraction coordinates.</li>
-</ul>
+  <ul>
+    <li>Fixed issue in <a href="ocr_pipeline_components#imagetotext">ImageToText</a> related to extraction coordinates.</li>
+  </ul>
 
+</div>
 <div class="prev_ver h3-box">
 
   <h2 id="versions">Versions</h2>
 
 </div>
-
 <ul class="pagination">
-    <li>
-        <a href="release_notes_1_3_0">Version 1.3.0</a>
-    </li>
-    <li>
-        <strong>Version 1.4.0</strong>
-    </li>
-    <li>
-        <a href="release_notes_1_5_0">Version 1.5.0</a>
-    </li>
+  <li>
+      <a href="release_notes_">Version <strong id="previosver"></strong></a>
+  </li>
+  <li>
+      <strong>Version <strong id="currversion"></strong></strong>
+  </li>
+  <li>
+      <a href="release_notes_">Version <strong id="nextver"></strong></a>
+  </li>
 </ul>
-
 <ul class="pagination owl-carousel pagination_big">
-  <li><a href="release_notes_3_14_0">3.14.0</a></li>
-  <li><a href="release_notes_3_13_0">3.13.0</a></li>
-  <li><a href="release_notes_3_12_0">3.12.0</a></li>
-  <li><a href="release_notes_3_11_0">3.11.0</a></li>
-  <li><a href="release_notes_3_10_0">3.10.0</a></li>
-  <li><a href="release_notes_3_9_1">3.9.1</a></li>
-  <li><a href="release_notes_3_9_0">3.9.0</a></li>
-  <li><a href="release_notes_3_8_0">3.8.0</a></li>
-  <li><a href="release_notes_3_7_0">3.7.0</a></li>
-  <li><a href="release_notes_3_6_0">3.6.0</a></li>
-  <li><a href="release_notes_3_5_0">3.5.0</a></li>
-  <li><a href="release_notes_3_4_0">3.4.0</a></li>
-  <li><a href="release_notes_3_3_0">3.3.0</a></li>
-  <li><a href="release_notes_3_2_0">3.2.0</a></li>
-  <li><a href="release_notes_3_1_0">3.1.0</a></li>
-  <li><a href="release_notes_3_0_0">3.0.0</a></li>
-  <li><a href="release_notes_1_11_0">1.11.0</a></li>
-  <li><a href="release_notes_1_10_0">1.10.0</a></li>
-  <li><a href="release_notes_1_9_0">1.9.0</a></li>
-  <li><a href="release_notes_1_8_0">1.8.0</a></li>
-  <li><a href="release_notes_1_7_0">1.7.0</a></li>
-  <li><a href="release_notes_1_6_0">1.6.0</a></li>
-  <li><a href="release_notes_1_5_0">1.5.0</a></li>
-  <li class="active"><a href="release_notes_1_4_0">1.4.0</a></li>
-  <li><a href="release_notes_1_3_0">1.3.0</a></li>
-  <li><a href="release_notes_1_2_0">1.2.0</a></li>
-  <li><a href="release_notes_1_1_2">1.1.2</a></li>
-  <li><a href="release_notes_1_1_1">1.1.1</a></li>
-  <li><a href="release_notes_1_1_0">1.1.0</a></li>
-  <li><a href="release_notes_1_0_0">1.0.0</a></li>
-</ul>
+    <li><a href="release_notes_4_2_0">4.2.0</a></li>
+    <li><a href="release_notes_4_1_0">4.1.0</a></li>
+    <li><a href="release_notes_4_0_2">4.0.2</a></li>
+    <li><a href="release_notes_4_0_0">4.0.0</a></li>
+    <li><a href="release_notes_3_14_0">3.14.0</a></li>
+    <li><a href="release_notes_3_13_0">3.13.0</a></li>
+    <li><a href="release_notes_3_12_0">3.12.0</a></li>
+    <li><a href="release_notes_3_11_0">3.11.0</a></li>
+    <li><a href="release_notes_3_10_0">3.10.0</a></li>
+    <li><a href="release_notes_3_9_1">3.9.1</a></li>
+    <li><a href="release_notes_3_9_0">3.9.0</a></li>
+    <li><a href="release_notes_3_8_0">3.8.0</a></li>
+    <li><a href="release_notes_3_7_0">3.7.0</a></li>
+    <li><a href="release_notes_3_6_0">3.6.0</a></li>
+    <li><a href="release_notes_3_5_0">3.5.0</a></li>
+    <li><a href="release_notes_3_4_0">3.4.0</a></li>
+    <li><a href="release_notes_3_3_0">3.3.0</a></li>
+    <li><a href="release_notes_3_2_0">3.2.0</a></li>
+    <li><a href="release_notes_3_1_0">3.1.0</a></li>
+    <li><a href="release_notes_3_0_0">3.0.0</a></li>
+    <li><a href="release_notes_1_11_0">1.11.0</a></li>
+    <li><a href="release_notes_1_10_0">1.10.0</a></li>
+    <li><a href="release_notes_1_9_0">1.9.0</a></li>
+    <li><a href="release_notes_1_8_0">1.8.0</a></li>
+    <li><a href="release_notes_1_7_0">1.7.0</a></li>
+    <li><a href="release_notes_1_6_0">1.6.0</a></li>
+    <li><a href="release_notes_1_5_0">1.5.0</a></li>
+    <li><a href="release_notes_1_4_0">1.4.0</a></li>
+    <li><a href="release_notes_1_3_0">1.3.0</a></li>
+    <li><a href="release_notes_1_2_0">1.2.0</a></li>
+    <li><a href="release_notes_1_1_2">1.1.2</a></li>
+    <li><a href="release_notes_1_1_1">1.1.1</a></li>
+    <li><a href="release_notes_1_1_0">1.1.0</a></li>
+    <li><a href="release_notes_1_0_0">1.0.0</a></li>
+  </ul>
 </div><div class="d-print-none"><footer class="article__footer"><span class="footer_date">Last updated
       <time itemprop="dateModified" datetime="2022-01-06T00:00:00+00:00">Jan 06, 2022</time>
     </span><!-- start custom article footer snippet -->
@@ -1036,58 +1041,34 @@ $(document).ready(function () {
 
 /* Responsive menu
 	 ========================================================*/
-jQuery(document).ready(function ($) {
-  jQuery('#responsive_menu').click(function (e) {
-    e.preventDefault();
-    jQuery(this).toggleClass('close');
-    jQuery('.top_navigation').toggleClass('open');
+jQuery(document).ready(function($) {
+	jQuery('#responsive_menu').click(function(e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('close');
+      jQuery('.top_navigation').toggleClass('open');
   });
-  jQuery('#aside_menu').click(function (e) {
-    e.preventDefault();
-    jQuery(this).toggleClass('close');
-    jQuery('.js-col-aside').toggleClass('open');
-    if (jQuery(window).width() <= 1023) {
-      jQuery('.page__sidebar').toggleClass('open');
+  jQuery('#aside_menu').click(function(e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('close');
+      jQuery('.js-col-aside').toggleClass('open');
+      if (jQuery(window).width() <= 1023)
+      {
+        jQuery('.page__sidebar').toggleClass('open'); 
       jQuery('.demomenu').toggleClass('open');
-    }
+      }
   });
-  jQuery('.toc--ellipsis a').click(function (e) {
-    if (jQuery(window).width() <= 767) {
-      jQuery('.js-col-aside').removeClass('open');
-      jQuery('.page__sidebar').removeClass('open');
-      jQuery('#aside_menu').removeClass('close');
-    }
+  jQuery('.toc--ellipsis a').click(function(e) {
+    if (jQuery(window).width() <= 767)
+      {
+        jQuery('.js-col-aside').removeClass('open');
+        jQuery('.page__sidebar').removeClass('open');    
+        jQuery('#aside_menu').removeClass('close');  
+      }       
   });
 });
 
-/*TABS*/
-/* function openTabCall(cityName){
-  // Declare all variables
-  var i, tabcontent, tablinks;
-
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-}
-
-function openTab(evt, cityName) {
-  openTabCall(cityName);
-  evt.currentTarget.className += " active";
-} */
-
 /*OPen by URL*/
-jQuery(document).ready(function () {
+jQuery(document).ready(function () {  
   const tabName = (window.location.hash || '').replace('#', '');
   const tab = document.getElementById(tabName || 'opensource');
   if (tab) {
@@ -1096,49 +1077,49 @@ jQuery(document).ready(function () {
 });
 
 //Accordion demos categories
-if (document.querySelector('.acc-top')) {
-  let acc = document.getElementsByClassName('acc-top'),
+if(document.querySelector(".acc-top")) {
+  let acc = document.getElementsByClassName("acc-top"),
     isResizeble = false;
 
-  if (!isResizeble && document.querySelector('.acc-top')) {
-    let accBody = document.querySelector('.acc-body li.active');
-    accBody.parentElement.style.maxHeight =
-      accBody.parentElement.scrollHeight + 20 + 'px';
-    accBody.parentElement.classList.add('open');
-    accBody.parentElement.previousElementSibling.classList.add('active');
-    isResizeble = true;
+  if(!isResizeble && document.querySelector(".acc-top")) {
+      let accBody = document.querySelector('.acc-body li.active');
+      accBody.parentElement.style.maxHeight = accBody.parentElement.scrollHeight + 20 + "px";
+      accBody.parentElement.classList.add('open');
+      accBody.parentElement.previousElementSibling.classList.add('active');
+      isResizeble = true;
   }
 
-  for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener('click', function () {
-      this.classList.toggle('active');
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-        panel.classList.remove('open');
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + 20 + 'px';
-        panel.classList.add('open');
-      }
-    });
-  }
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+      panel.classList.remove('open');
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 20 + "px";
+      panel.classList.add('open');
+    }
+  });
+}
 }
 
+
 //Show more in demos description
-if (document.querySelector('.tab-description')) {
+if(document.querySelector('.tab-description')) {
   let tabDescription = document.querySelectorAll('.tab-description');
 
-  tabDescription.forEach((element) => {
+  tabDescription.forEach(element => {
     let tabDescriptionInner = element.querySelector('.tab-description-inner');
-    if (element.offsetHeight < tabDescriptionInner.offsetHeight) {
+    if(element.offsetHeight < tabDescriptionInner.offsetHeight) {
       element.classList.add('big-descr');
     }
   });
 
   let showMore = document.querySelectorAll('.show_more');
 
-  showMore.forEach((element) => {
-    element.addEventListener('click', function (e) {
+  showMore.forEach(element => {
+    element.addEventListener("click", function(e) {
       e.preventDefault();
       this.parentElement.parentElement.classList.remove('big-descr');
       this.parentElement.parentElement.classList.add('big-descr-close');
@@ -1146,47 +1127,74 @@ if (document.querySelector('.tab-description')) {
   });
 }
 
+
 //disable Colab link
-if (document.querySelector('.btn.disable')) {
+if(document.querySelector('.btn.disable')) {
   let btnDisable = document.querySelectorAll('.btn.disable');
 
-  btnDisable.forEach((element) => {
-    element.addEventListener('click', function (e) {
+  btnDisable.forEach(element => {
+    element.addEventListener("click", function(e) {
       e.preventDefault();
     });
   });
 }
 
+
 // Ancor click
 const anchors = [].slice.call(document.querySelectorAll('.btn-box-install a')),
-  animationTime = 300,
-  framesCount = 20;
+      animationTime = 300,
+      framesCount = 20;
 
-anchors.forEach(function (item) {
-  item.addEventListener('click', function (e) {
-    e.preventDefault();
-    let coordY =
-      document.querySelector(item.getAttribute('href')).getBoundingClientRect()
-        .top +
-      window.pageYOffset -
-      100;
-
-    let scroller = setInterval(function () {
-      let scrollBy = coordY / framesCount;
-
-      if (
-        scrollBy > window.pageYOffset - coordY &&
-        window.innerHeight + window.pageYOffset < document.body.offsetHeight
-      ) {
-        window.scrollBy(0, scrollBy);
+anchors.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top + window.pageYOffset -100;
+    
+        let scroller = setInterval(function() {
+            let scrollBy = coordY / framesCount;
+      
+      if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+          window.scrollBy(0, scrollBy);
       } else {
-        window.scrollTo(0, coordY);
+                window.scrollTo(0, coordY);
         clearInterval(scroller);
       }
-    }, animationTime / framesCount);
+        }, animationTime / framesCount);
   });
-});
+}); 
 
+
+//Pagination active
+if(document.querySelector('.pagination_big')) {
+  let paginationItems = document.querySelectorAll('.pagination_big li'),
+      nextVersionContainer = document.querySelector('#nextver'),
+      previosVersionContainer = document.querySelector('#previosver'),
+      currentVersionContainer = document.querySelector('#currversion'),
+      currentPageTitle = document.querySelector('#section').innerText;
+
+  // Set active page and update version containers
+  for (let i = 0; i < paginationItems.length; i++) {
+    const item = paginationItems[i];
+    const itemTitle = item.firstElementChild.innerHTML;
+    if (itemTitle === currentPageTitle) {
+      item.classList.add('active');
+      currentVersionContainer.textContent = itemTitle;       
+      if(item.previousElementSibling) {
+        previosVersionContainer.textContent = item.previousElementSibling.innerText; 
+        previosVersionContainer.parentElement.href += item.previousElementSibling.innerText.replaceAll('.', '_');
+      } else {
+        previosVersionContainer.parentElement.parentElement.classList.add('hide');
+      }
+      if(item.nextElementSibling) {
+        nextVersionContainer.textContent = item.nextElementSibling.innerText;
+        nextVersionContainer.parentElement.href += item.nextElementSibling.innerText.replaceAll('.', '_');
+      } else {
+        nextVersionContainer.parentElement.parentElement.classList.add('hide');
+      }         
+      break;
+    }
+  }
+}
 // copy to clipboard
 if (document.querySelector('.button-copy-s3')) {
   let btnCopy = document.querySelectorAll('.button-copy-s3');

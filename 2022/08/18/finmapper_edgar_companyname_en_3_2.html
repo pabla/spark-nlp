@@ -435,8 +435,7 @@
 
 <p class="btn-box"><a href="https://demo.johnsnowlabs.com/finance/FIN_LEG_COMPANY_AUGMENTATION/" class="button button-orange">Live Demo</a>
 <button class="button button-orange" disabled="">Open in Colab</button>
-<a href="https://s3.amazonaws.com/auxdata.johnsnowlabs.com/finance/models/finmapper_edgar_companyname_en_1.0.0_3.2_1660817326595.zip" class="button button-orange button-orange-trans arr button-icon hidden">Download</a>
-<a href="s3://auxdata.johnsnowlabs.com/finance/models/finmapper_edgar_companyname_en_1.0.0_3.2_1660817326595.zip" class="button button-orange button-orange-trans button-icon button-copy-s3">Copy S3 URI</a></p>
+<a href="https://s3.amazonaws.com/auxdata.johnsnowlabs.com/finance/models/finmapper_edgar_companyname_en_1.0.0_3.2_1660817326595.zip" class="button button-orange button-orange-trans arr button-icon">Download</a></p>
 
 <h2 id="how-to-use">How to use</h2>
 
@@ -465,69 +464,49 @@
         <span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">"document"</span><span class="p">,</span><span class="s">"token"</span><span class="p">,</span><span class="s">"ner"</span><span class="p">])</span>\
         <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">"ner_chunk"</span><span class="p">)</span>
 
-<span class="n">chunkToDoc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">.</span><span class="n">Chunk2Doc</span><span class="p">()</span>\
+<span class="c1"># Optional: To normalize the ORG name using NASDAQ data before the mapping
+##########################################################################
+</span><span class="n">chunkToDoc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">.</span><span class="n">Chunk2Doc</span><span class="p">()</span>\
         <span class="p">.</span><span class="n">setInputCols</span><span class="p">(</span><span class="s">"ner_chunk"</span><span class="p">)</span>\
         <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">"ner_chunk_doc"</span><span class="p">)</span>
 
-<span class="n">sentence_embeddings</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">.</span><span class="n">UniversalSentenceEncoder</span><span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">"tfhub_use"</span><span class="p">,</span> <span class="s">"en"</span><span class="p">)</span> \
+<span class="n">chunk_embeddings</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">.</span><span class="n">UniversalSentenceEncoder</span><span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">"tfhub_use"</span><span class="p">,</span> <span class="s">"en"</span><span class="p">)</span> \
       <span class="p">.</span><span class="n">setInputCols</span><span class="p">(</span><span class="s">"ner_chunk_doc"</span><span class="p">)</span> \
       <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">"sentence_embeddings"</span><span class="p">)</span>
     
-<span class="n">resolver</span> <span class="o">=</span> <span class="n">finance</span><span class="p">.</span><span class="n">SentenceEntityResolverModel</span><span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">"finel_edgar_company_name"</span><span class="p">,</span> <span class="s">"en"</span><span class="p">,</span> <span class="s">"finance/models"</span><span class="p">)</span> \
+<span class="n">use_er_model</span> <span class="o">=</span> <span class="n">finance</span><span class="p">.</span><span class="n">SentenceEntityResolverModel</span><span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">"finel_edgar_company_name"</span><span class="p">,</span> <span class="s">"en"</span><span class="p">,</span> <span class="s">"finance/models"</span><span class="p">)</span> \
       <span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">"ner_chunk_doc"</span><span class="p">,</span> <span class="s">"sentence_embeddings"</span><span class="p">])</span> \
       <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">"normalized"</span><span class="p">)</span>\
       <span class="p">.</span><span class="n">setDistanceFunction</span><span class="p">(</span><span class="s">"EUCLIDEAN"</span><span class="p">)</span>
+<span class="c1">##########################################################################
+</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">finance</span><span class="p">.</span><span class="n">ChunkMapperModel</span><span class="p">()</span>\
+      <span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">"finmapper_edgar_companyname"</span><span class="p">,</span> <span class="s">"en"</span><span class="p">,</span> <span class="s">"finance/models"</span><span class="p">)</span>\
+      <span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">"normalized"</span><span class="p">])</span>\ <span class="c1"># or ner_chunk for non normalized versions
+</span>      <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">"mappings"</span><span class="p">)</span>
 
-
-<span class="n">nlpPipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span>
+<span class="n">nlpPipeline</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">.</span><span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span>
         <span class="n">documentAssembler</span><span class="p">,</span>
         <span class="n">tokenizer</span><span class="p">,</span>
         <span class="n">embeddings</span><span class="p">,</span>
         <span class="n">ner_model</span><span class="p">,</span>
         <span class="n">ner_converter</span><span class="p">,</span>
         <span class="n">chunkToDoc</span><span class="p">,</span>
-        <span class="n">sentence_embeddings</span><span class="p">,</span>
-        <span class="n">resolver</span><span class="p">])</span>
+        <span class="n">chunk_embeddings</span><span class="p">,</span>
+        <span class="n">use_er_model</span><span class="p">,</span>
+        <span class="n">cm</span>
+<span class="p">])</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s">""</span><span class="p">]</span>
-<span class="n">test_data</span> <span class="o">=</span> <span class="n">spark</span><span class="p">.</span><span class="n">createDataFrame</span><span class="p">([</span><span class="n">text</span><span class="p">]).</span><span class="n">toDF</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s">"""NIKE Inc is an American multinational corporation that is engaged in the design, development, manufacturing, and worldwide marketing and sales of footwear, 
+apparel, equipment, accessories, and services"""</span>
+
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">spark</span><span class="p">.</span><span class="n">createDataFrame</span><span class="p">([[</span><span class="n">text</span><span class="p">]]).</span><span class="n">toDF</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span>
+
 <span class="n">model</span> <span class="o">=</span> <span class="n">nlpPipeline</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
 
-<span class="n">lp</span> <span class="o">=</span> <span class="n">LightPipeline</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="p">.</span><span class="n">fullAnnotate</span><span class="p">(</span><span class="s">"Jamestown Invest LLC is a direct-to-consumer platform for Commercial Real Estate Investments launched by a global real estate institution."</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">.</span><span class="n">LightPipeline</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
-<span class="c1"># This will return the first normalized record found, which is the most similar
-</span><span class="n">first_result</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'normalized'</span><span class="p">][</span><span class="s">'all_k_resolutions'</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">':::'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Jamestown Invest 1, LLC
-</span>
-
-<span class="n">documentAssembler</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">.</span><span class="n">DocumentAssembler</span><span class="p">()</span>\
-        <span class="p">.</span><span class="n">setInputCol</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span>\
-        <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">"document"</span><span class="p">)</span>
-
-<span class="n">chunkAssembler</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">.</span><span class="n">Doc2Chunk</span><span class="p">()</span> \
-    <span class="p">.</span><span class="n">setInputCols</span><span class="p">(</span><span class="s">"document"</span><span class="p">)</span> \
-    <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">"chunk"</span><span class="p">)</span> \
-    <span class="p">.</span><span class="n">setIsArray</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-
-<span class="n">CM</span> <span class="o">=</span> <span class="n">finance</span><span class="p">.</span><span class="n">ChunkMapperModel</span><span class="p">()</span>\
-      <span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">"finmapper_edgar_companyname"</span><span class="p">,</span> <span class="s">"en"</span><span class="p">,</span> <span class="s">"finance/models"</span><span class="p">)</span>\
-      <span class="p">.</span><span class="n">setInputCols</span><span class="p">([</span><span class="s">"chunk"</span><span class="p">])</span>\
-      <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">"mappings"</span><span class="p">)</span>
-      
-<span class="n">cm_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">documentAssembler</span><span class="p">,</span> <span class="n">chunkAssembler</span><span class="p">,</span> <span class="n">CM</span><span class="p">])</span>
-<span class="n">fit_cm_pipeline</span> <span class="o">=</span> <span class="n">cm_pipeline</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="p">.</span><span class="n">createDataFrame</span><span class="p">([[</span><span class="n">first_result</span><span class="p">]]).</span><span class="n">toDF</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">fit_cm_pipeline</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">).</span><span class="n">collect</span><span class="p">()</span>
-
-<span class="n">json_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<span class="n">json_dict</span><span class="p">[</span><span class="s">'mappings'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'mappings'</span><span class="p">]:</span>
-    <span class="n">json_dict</span><span class="p">[</span><span class="s">'mappings'</span><span class="p">].</span><span class="n">append</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">annotatorType</span><span class="p">),</span> <span class="n">n</span><span class="p">.</span><span class="n">begin</span><span class="p">,</span> <span class="n">n</span><span class="p">.</span><span class="n">end</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">result</span><span class="p">),</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">n</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">items</span><span class="p">()}])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_dict</span><span class="p">))</span>
-
-
-
+<span class="n">lp</span><span class="p">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>  </div>
 
 </div>
@@ -995,58 +974,34 @@ $(document).ready(function () {
 
 /* Responsive menu
 	 ========================================================*/
-jQuery(document).ready(function ($) {
-  jQuery('#responsive_menu').click(function (e) {
-    e.preventDefault();
-    jQuery(this).toggleClass('close');
-    jQuery('.top_navigation').toggleClass('open');
+jQuery(document).ready(function($) {
+	jQuery('#responsive_menu').click(function(e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('close');
+      jQuery('.top_navigation').toggleClass('open');
   });
-  jQuery('#aside_menu').click(function (e) {
-    e.preventDefault();
-    jQuery(this).toggleClass('close');
-    jQuery('.js-col-aside').toggleClass('open');
-    if (jQuery(window).width() <= 1023) {
-      jQuery('.page__sidebar').toggleClass('open');
+  jQuery('#aside_menu').click(function(e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('close');
+      jQuery('.js-col-aside').toggleClass('open');
+      if (jQuery(window).width() <= 1023)
+      {
+        jQuery('.page__sidebar').toggleClass('open'); 
       jQuery('.demomenu').toggleClass('open');
-    }
+      }
   });
-  jQuery('.toc--ellipsis a').click(function (e) {
-    if (jQuery(window).width() <= 767) {
-      jQuery('.js-col-aside').removeClass('open');
-      jQuery('.page__sidebar').removeClass('open');
-      jQuery('#aside_menu').removeClass('close');
-    }
+  jQuery('.toc--ellipsis a').click(function(e) {
+    if (jQuery(window).width() <= 767)
+      {
+        jQuery('.js-col-aside').removeClass('open');
+        jQuery('.page__sidebar').removeClass('open');    
+        jQuery('#aside_menu').removeClass('close');  
+      }       
   });
 });
 
-/*TABS*/
-/* function openTabCall(cityName){
-  // Declare all variables
-  var i, tabcontent, tablinks;
-
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-}
-
-function openTab(evt, cityName) {
-  openTabCall(cityName);
-  evt.currentTarget.className += " active";
-} */
-
 /*OPen by URL*/
-jQuery(document).ready(function () {
+jQuery(document).ready(function () {  
   const tabName = (window.location.hash || '').replace('#', '');
   const tab = document.getElementById(tabName || 'opensource');
   if (tab) {
@@ -1055,49 +1010,49 @@ jQuery(document).ready(function () {
 });
 
 //Accordion demos categories
-if (document.querySelector('.acc-top')) {
-  let acc = document.getElementsByClassName('acc-top'),
+if(document.querySelector(".acc-top")) {
+  let acc = document.getElementsByClassName("acc-top"),
     isResizeble = false;
 
-  if (!isResizeble && document.querySelector('.acc-top')) {
-    let accBody = document.querySelector('.acc-body li.active');
-    accBody.parentElement.style.maxHeight =
-      accBody.parentElement.scrollHeight + 20 + 'px';
-    accBody.parentElement.classList.add('open');
-    accBody.parentElement.previousElementSibling.classList.add('active');
-    isResizeble = true;
+  if(!isResizeble && document.querySelector(".acc-top")) {
+      let accBody = document.querySelector('.acc-body li.active');
+      accBody.parentElement.style.maxHeight = accBody.parentElement.scrollHeight + 20 + "px";
+      accBody.parentElement.classList.add('open');
+      accBody.parentElement.previousElementSibling.classList.add('active');
+      isResizeble = true;
   }
 
-  for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener('click', function () {
-      this.classList.toggle('active');
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-        panel.classList.remove('open');
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + 20 + 'px';
-        panel.classList.add('open');
-      }
-    });
-  }
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+      panel.classList.remove('open');
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 20 + "px";
+      panel.classList.add('open');
+    }
+  });
+}
 }
 
+
 //Show more in demos description
-if (document.querySelector('.tab-description')) {
+if(document.querySelector('.tab-description')) {
   let tabDescription = document.querySelectorAll('.tab-description');
 
-  tabDescription.forEach((element) => {
+  tabDescription.forEach(element => {
     let tabDescriptionInner = element.querySelector('.tab-description-inner');
-    if (element.offsetHeight < tabDescriptionInner.offsetHeight) {
+    if(element.offsetHeight < tabDescriptionInner.offsetHeight) {
       element.classList.add('big-descr');
     }
   });
 
   let showMore = document.querySelectorAll('.show_more');
 
-  showMore.forEach((element) => {
-    element.addEventListener('click', function (e) {
+  showMore.forEach(element => {
+    element.addEventListener("click", function(e) {
       e.preventDefault();
       this.parentElement.parentElement.classList.remove('big-descr');
       this.parentElement.parentElement.classList.add('big-descr-close');
@@ -1105,47 +1060,74 @@ if (document.querySelector('.tab-description')) {
   });
 }
 
+
 //disable Colab link
-if (document.querySelector('.btn.disable')) {
+if(document.querySelector('.btn.disable')) {
   let btnDisable = document.querySelectorAll('.btn.disable');
 
-  btnDisable.forEach((element) => {
-    element.addEventListener('click', function (e) {
+  btnDisable.forEach(element => {
+    element.addEventListener("click", function(e) {
       e.preventDefault();
     });
   });
 }
 
+
 // Ancor click
 const anchors = [].slice.call(document.querySelectorAll('.btn-box-install a')),
-  animationTime = 300,
-  framesCount = 20;
+      animationTime = 300,
+      framesCount = 20;
 
-anchors.forEach(function (item) {
-  item.addEventListener('click', function (e) {
-    e.preventDefault();
-    let coordY =
-      document.querySelector(item.getAttribute('href')).getBoundingClientRect()
-        .top +
-      window.pageYOffset -
-      100;
-
-    let scroller = setInterval(function () {
-      let scrollBy = coordY / framesCount;
-
-      if (
-        scrollBy > window.pageYOffset - coordY &&
-        window.innerHeight + window.pageYOffset < document.body.offsetHeight
-      ) {
-        window.scrollBy(0, scrollBy);
+anchors.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top + window.pageYOffset -100;
+    
+        let scroller = setInterval(function() {
+            let scrollBy = coordY / framesCount;
+      
+      if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+          window.scrollBy(0, scrollBy);
       } else {
-        window.scrollTo(0, coordY);
+                window.scrollTo(0, coordY);
         clearInterval(scroller);
       }
-    }, animationTime / framesCount);
+        }, animationTime / framesCount);
   });
-});
+}); 
 
+
+//Pagination active
+if(document.querySelector('.pagination_big')) {
+  let paginationItems = document.querySelectorAll('.pagination_big li'),
+      nextVersionContainer = document.querySelector('#nextver'),
+      previosVersionContainer = document.querySelector('#previosver'),
+      currentVersionContainer = document.querySelector('#currversion'),
+      currentPageTitle = document.querySelector('#section').innerText;
+
+  // Set active page and update version containers
+  for (let i = 0; i < paginationItems.length; i++) {
+    const item = paginationItems[i];
+    const itemTitle = item.firstElementChild.innerHTML;
+    if (itemTitle === currentPageTitle) {
+      item.classList.add('active');
+      currentVersionContainer.textContent = itemTitle;       
+      if(item.previousElementSibling) {
+        previosVersionContainer.textContent = item.previousElementSibling.innerText; 
+        previosVersionContainer.parentElement.href += item.previousElementSibling.innerText.replaceAll('.', '_');
+      } else {
+        previosVersionContainer.parentElement.parentElement.classList.add('hide');
+      }
+      if(item.nextElementSibling) {
+        nextVersionContainer.textContent = item.nextElementSibling.innerText;
+        nextVersionContainer.parentElement.href += item.nextElementSibling.innerText.replaceAll('.', '_');
+      } else {
+        nextVersionContainer.parentElement.parentElement.classList.add('hide');
+      }         
+      break;
+    }
+  }
+}
 // copy to clipboard
 if (document.querySelector('.button-copy-s3')) {
   let btnCopy = document.querySelectorAll('.button-copy-s3');

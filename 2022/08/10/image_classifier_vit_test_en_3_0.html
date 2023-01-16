@@ -11,7 +11,7 @@
     })(window,document,'script','dataLayer','GTM-59JLR64');</script>
 <!-- End Google Tag Manager --><title>English image_classifier_vit_test ViTForImageClassification from flyswot</title><meta property="og:title" content=""/>
 
-<meta name="description" content="DescriptionPretrained VIT  model, adapted from Hugging Face and curated to provide scalability and production-readiness using Spark NLP.image_classifier_vit_test is a English model originally trained by flyswot.Live DemoOpen in ColabDownloadCopy S3 URIHow to use         PythonScalaNLU  image_assembler = ImageAssembl...">
+<meta name="description" content="DescriptionPretrained VIT  model, adapted from Hugging Face and curated to provide scalability and production-readiness using Spark NLP.image_classifier_vit_test is a English model originally trained by flyswot.Predicted EntitiesEDGE + SPINE, OTHER, PAGE + FOLIO, FLYSHEET, CONTAINER, CONTROL SHOT, COVER, SCROLLLive ...">
 <link rel="canonical" href="/2022/08/10/image_classifier_vit_test_en_3_0.html"><link rel="alternate" type="application/rss+xml" title="Spark NLP" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ -->
 <!---->
 <!-- <link rel="apple-touch-icon" sizes="180x180" href="/fav.ico"> -->
@@ -421,87 +421,169 @@
 
 <p>Pretrained VIT  model, adapted from Hugging Face and curated to provide scalability and production-readiness using Spark NLP.<code class="language-plaintext highlighter-rouge">image_classifier_vit_test</code> is a English model originally trained by flyswot.</p>
 
-<p class="btn-box"><button class="button button-orange" disabled="">Live Demo</button>
-<button class="button button-orange" disabled="">Open in Colab</button>
-<a href="https://s3.amazonaws.com/auxdata.johnsnowlabs.com/public/models/image_classifier_vit_test_en_4.1.0_3.0_1660169623877.zip" class="button button-orange button-orange-trans arr button-icon">Download</a>
-<a href="s3://auxdata.johnsnowlabs.com/public/models/image_classifier_vit_test_en_4.1.0_3.0_1660169623877.zip" class="button button-orange button-orange-trans button-icon button-copy-s3">Copy S3 URI</a></p>
+<h2 id="predicted-entities">Predicted Entities</h2>
+
+<p><code class="language-plaintext highlighter-rouge">EDGE + SPINE</code>, <code class="language-plaintext highlighter-rouge">OTHER</code>, <code class="language-plaintext highlighter-rouge">PAGE + FOLIO</code>, <code class="language-plaintext highlighter-rouge">FLYSHEET</code>, <code class="language-plaintext highlighter-rouge">CONTAINER</code>, <code class="language-plaintext highlighter-rouge">CONTROL SHOT</code>, <code class="language-plaintext highlighter-rouge">COVER</code>, <code class="language-plaintext highlighter-rouge">SCROLL</code></p>
+
+<p class="btn-box"><button class="button button-orange" disabled="">Live Demo</button></p>
+
+<p><button class="button button-orange" disabled="">Open in Colab</button></p>
+
+<p><a href="https://s3.amazonaws.com/auxdata.johnsnowlabs.com/public/models/image_classifier_vit_test_en_4.1.0_3.0_1660169623877.zip" class="button button-orange button-orange-trans arr button-icon">Download</a></p>
 
 <h2 id="how-to-use">How to use</h2>
 
 <div class="tabs-box">
+
   <div class="top_tab_li">   
     <p><button data-type="python" class="tab-li code-selector-active python-button">Python</button><button data-type="scala" class="tab-li code-selector-un-active scala-button">Scala</button><button data-type="nlu" class="tab-li code-selector-un-active nlu-button">NLU</button></p>
 </div>
+
   <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
 <span class="n">image_assembler</span> <span class="o">=</span> <span class="n">ImageAssembler</span><span class="p">()</span> \
+
     <span class="p">.</span><span class="n">setInputCol</span><span class="p">(</span><span class="s">"image"</span><span class="p">)</span> \
+
     <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">"image_assembler"</span><span class="p">)</span>
 
+
+
 <span class="n">imageClassifier</span> <span class="o">=</span> <span class="n">ViTForImageClassification</span> \
+
     <span class="p">.</span><span class="n">pretrained</span><span class="p">(</span><span class="s">"image_classifier_vit_test"</span><span class="p">,</span> <span class="s">"en"</span><span class="p">)</span>\
+
     <span class="p">.</span><span class="n">setInputCols</span><span class="p">(</span><span class="s">"image_assembler"</span><span class="p">)</span> \
+
     <span class="p">.</span><span class="n">setOutputCol</span><span class="p">(</span><span class="s">"class"</span><span class="p">)</span>
 
+
+
 <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span>
+
     <span class="n">image_assembler</span><span class="p">,</span>
+
     <span class="n">imageClassifier</span><span class="p">,</span>
+
 <span class="p">])</span>
+
+
 
 <span class="n">pipelineModel</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">imageDF</span><span class="p">)</span>
 
+
+
 <span class="n">pipelineDF</span> <span class="o">=</span> <span class="n">pipelineModel</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">imageDF</span><span class="p">)</span>
+
 </code></pre></div>  </div>
+
   <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
 <span class="k">val</span> <span class="nv">imageAssembler</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ImageAssembler</span><span class="o">()\</span>
+
 <span class="o">.</span><span class="py">setInputCol</span><span class="o">(</span><span class="s">"image"</span><span class="o">)\</span>
+
 <span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"image_assembler"</span><span class="o">)</span>
 
+
+
 <span class="k">val</span> <span class="nv">imageClassifier</span> <span class="k">=</span> <span class="nc">ViTForImageClassification</span><span class="o">\</span>
+
 <span class="o">.</span><span class="py">pretrained</span><span class="o">(</span><span class="s">"image_classifier_vit_test"</span><span class="o">,</span> <span class="s">"en"</span><span class="o">)\</span>
+
 <span class="o">.</span><span class="py">setInputCols</span><span class="o">(</span><span class="s">"image_assembler"</span><span class="o">)\</span>
+
 <span class="o">.</span><span class="py">setOutputCol</span><span class="o">(</span><span class="s">"class"</span><span class="o">)</span>
+
+
 
 <span class="k">val</span> <span class="nv">pipeline</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Pipeline</span><span class="o">().</span><span class="py">setStages</span><span class="o">(</span><span class="nc">Array</span><span class="o">(</span><span class="n">imageAssembler</span><span class="o">,</span> <span class="n">imageClassifier</span><span class="o">))</span>
 
+
+
 <span class="k">val</span> <span class="nv">pipelineModel</span> <span class="k">=</span> <span class="nv">pipeline</span><span class="o">.</span><span class="py">fit</span><span class="o">(</span><span class="n">imageDF</span><span class="o">)</span>
+
+
 
 <span class="k">val</span> <span class="nv">pipelineDF</span> <span class="k">=</span> <span class="nv">pipelineModel</span><span class="o">.</span><span class="py">transform</span><span class="o">(</span><span class="n">imageDF</span><span class="o">)</span>
 
+
+
 </code></pre></div>  </div>
+
 </div>
 
 <h2 class="model-param" id="model-information">Model Information</h2>
 
-<table class="table-model">
+<p>|—|—|</p>
+
+<table>
   <tbody>
     <tr>
       <td>Model Name:</td>
       <td>image_classifier_vit_test</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
     <tr>
       <td>Compatibility:</td>
       <td>Spark NLP 4.1.0+</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
     <tr>
       <td>License:</td>
       <td>Open Source</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
     <tr>
       <td>Edition:</td>
       <td>Official</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
     <tr>
       <td>Input Labels:</td>
       <td>[image_assembler]</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
     <tr>
       <td>Output Labels:</td>
       <td>[class]</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
     <tr>
       <td>Language:</td>
       <td>en</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
     <tr>
       <td>Size:</td>
       <td>21.4 MB</td>
@@ -920,58 +1002,34 @@ $(document).ready(function () {
 
 /* Responsive menu
 	 ========================================================*/
-jQuery(document).ready(function ($) {
-  jQuery('#responsive_menu').click(function (e) {
-    e.preventDefault();
-    jQuery(this).toggleClass('close');
-    jQuery('.top_navigation').toggleClass('open');
+jQuery(document).ready(function($) {
+	jQuery('#responsive_menu').click(function(e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('close');
+      jQuery('.top_navigation').toggleClass('open');
   });
-  jQuery('#aside_menu').click(function (e) {
-    e.preventDefault();
-    jQuery(this).toggleClass('close');
-    jQuery('.js-col-aside').toggleClass('open');
-    if (jQuery(window).width() <= 1023) {
-      jQuery('.page__sidebar').toggleClass('open');
+  jQuery('#aside_menu').click(function(e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('close');
+      jQuery('.js-col-aside').toggleClass('open');
+      if (jQuery(window).width() <= 1023)
+      {
+        jQuery('.page__sidebar').toggleClass('open'); 
       jQuery('.demomenu').toggleClass('open');
-    }
+      }
   });
-  jQuery('.toc--ellipsis a').click(function (e) {
-    if (jQuery(window).width() <= 767) {
-      jQuery('.js-col-aside').removeClass('open');
-      jQuery('.page__sidebar').removeClass('open');
-      jQuery('#aside_menu').removeClass('close');
-    }
+  jQuery('.toc--ellipsis a').click(function(e) {
+    if (jQuery(window).width() <= 767)
+      {
+        jQuery('.js-col-aside').removeClass('open');
+        jQuery('.page__sidebar').removeClass('open');    
+        jQuery('#aside_menu').removeClass('close');  
+      }       
   });
 });
 
-/*TABS*/
-/* function openTabCall(cityName){
-  // Declare all variables
-  var i, tabcontent, tablinks;
-
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-}
-
-function openTab(evt, cityName) {
-  openTabCall(cityName);
-  evt.currentTarget.className += " active";
-} */
-
 /*OPen by URL*/
-jQuery(document).ready(function () {
+jQuery(document).ready(function () {  
   const tabName = (window.location.hash || '').replace('#', '');
   const tab = document.getElementById(tabName || 'opensource');
   if (tab) {
@@ -980,49 +1038,49 @@ jQuery(document).ready(function () {
 });
 
 //Accordion demos categories
-if (document.querySelector('.acc-top')) {
-  let acc = document.getElementsByClassName('acc-top'),
+if(document.querySelector(".acc-top")) {
+  let acc = document.getElementsByClassName("acc-top"),
     isResizeble = false;
 
-  if (!isResizeble && document.querySelector('.acc-top')) {
-    let accBody = document.querySelector('.acc-body li.active');
-    accBody.parentElement.style.maxHeight =
-      accBody.parentElement.scrollHeight + 20 + 'px';
-    accBody.parentElement.classList.add('open');
-    accBody.parentElement.previousElementSibling.classList.add('active');
-    isResizeble = true;
+  if(!isResizeble && document.querySelector(".acc-top")) {
+      let accBody = document.querySelector('.acc-body li.active');
+      accBody.parentElement.style.maxHeight = accBody.parentElement.scrollHeight + 20 + "px";
+      accBody.parentElement.classList.add('open');
+      accBody.parentElement.previousElementSibling.classList.add('active');
+      isResizeble = true;
   }
 
-  for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener('click', function () {
-      this.classList.toggle('active');
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-        panel.classList.remove('open');
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + 20 + 'px';
-        panel.classList.add('open');
-      }
-    });
-  }
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+      panel.classList.remove('open');
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 20 + "px";
+      panel.classList.add('open');
+    }
+  });
+}
 }
 
+
 //Show more in demos description
-if (document.querySelector('.tab-description')) {
+if(document.querySelector('.tab-description')) {
   let tabDescription = document.querySelectorAll('.tab-description');
 
-  tabDescription.forEach((element) => {
+  tabDescription.forEach(element => {
     let tabDescriptionInner = element.querySelector('.tab-description-inner');
-    if (element.offsetHeight < tabDescriptionInner.offsetHeight) {
+    if(element.offsetHeight < tabDescriptionInner.offsetHeight) {
       element.classList.add('big-descr');
     }
   });
 
   let showMore = document.querySelectorAll('.show_more');
 
-  showMore.forEach((element) => {
-    element.addEventListener('click', function (e) {
+  showMore.forEach(element => {
+    element.addEventListener("click", function(e) {
       e.preventDefault();
       this.parentElement.parentElement.classList.remove('big-descr');
       this.parentElement.parentElement.classList.add('big-descr-close');
@@ -1030,47 +1088,74 @@ if (document.querySelector('.tab-description')) {
   });
 }
 
+
 //disable Colab link
-if (document.querySelector('.btn.disable')) {
+if(document.querySelector('.btn.disable')) {
   let btnDisable = document.querySelectorAll('.btn.disable');
 
-  btnDisable.forEach((element) => {
-    element.addEventListener('click', function (e) {
+  btnDisable.forEach(element => {
+    element.addEventListener("click", function(e) {
       e.preventDefault();
     });
   });
 }
 
+
 // Ancor click
 const anchors = [].slice.call(document.querySelectorAll('.btn-box-install a')),
-  animationTime = 300,
-  framesCount = 20;
+      animationTime = 300,
+      framesCount = 20;
 
-anchors.forEach(function (item) {
-  item.addEventListener('click', function (e) {
-    e.preventDefault();
-    let coordY =
-      document.querySelector(item.getAttribute('href')).getBoundingClientRect()
-        .top +
-      window.pageYOffset -
-      100;
-
-    let scroller = setInterval(function () {
-      let scrollBy = coordY / framesCount;
-
-      if (
-        scrollBy > window.pageYOffset - coordY &&
-        window.innerHeight + window.pageYOffset < document.body.offsetHeight
-      ) {
-        window.scrollBy(0, scrollBy);
+anchors.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top + window.pageYOffset -100;
+    
+        let scroller = setInterval(function() {
+            let scrollBy = coordY / framesCount;
+      
+      if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+          window.scrollBy(0, scrollBy);
       } else {
-        window.scrollTo(0, coordY);
+                window.scrollTo(0, coordY);
         clearInterval(scroller);
       }
-    }, animationTime / framesCount);
+        }, animationTime / framesCount);
   });
-});
+}); 
 
+
+//Pagination active
+if(document.querySelector('.pagination_big')) {
+  let paginationItems = document.querySelectorAll('.pagination_big li'),
+      nextVersionContainer = document.querySelector('#nextver'),
+      previosVersionContainer = document.querySelector('#previosver'),
+      currentVersionContainer = document.querySelector('#currversion'),
+      currentPageTitle = document.querySelector('#section').innerText;
+
+  // Set active page and update version containers
+  for (let i = 0; i < paginationItems.length; i++) {
+    const item = paginationItems[i];
+    const itemTitle = item.firstElementChild.innerHTML;
+    if (itemTitle === currentPageTitle) {
+      item.classList.add('active');
+      currentVersionContainer.textContent = itemTitle;       
+      if(item.previousElementSibling) {
+        previosVersionContainer.textContent = item.previousElementSibling.innerText; 
+        previosVersionContainer.parentElement.href += item.previousElementSibling.innerText.replaceAll('.', '_');
+      } else {
+        previosVersionContainer.parentElement.parentElement.classList.add('hide');
+      }
+      if(item.nextElementSibling) {
+        nextVersionContainer.textContent = item.nextElementSibling.innerText;
+        nextVersionContainer.parentElement.href += item.nextElementSibling.innerText.replaceAll('.', '_');
+      } else {
+        nextVersionContainer.parentElement.parentElement.classList.add('hide');
+      }         
+      break;
+    }
+  }
+}
 // copy to clipboard
 if (document.querySelector('.button-copy-s3')) {
   let btnCopy = document.querySelectorAll('.button-copy-s3');

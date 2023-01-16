@@ -390,7 +390,7 @@
 <path d="M20.2658 26.412H8.38867V26.5781H20.2658V26.412Z" fill="#9EDEFA"/>
 </svg>
 -->
-</a><div class="sidebar-toc"><ul class="toc toc--navigator"><li class="toc-h1">All Enterprise libraries</li><li class="toc-h2"><a href="/docs/en/license_getting_started">Getting Started</a></li><li class="toc-h2 active"><a href="/docs/en/licensed_install">Installation</a></li><li class="toc-h2"><a href="/docs/en/licensed_annotators">Annotators</a></li><li class="toc-h2"><a href="/docs/en/licensed_training">Training</a></li><li class="toc-h2"><a href="/docs/en/evaluation">Evaluation</a></li><li class="toc-h2"><a href="/docs/en/utility_helper_modules">Utility & Helper Modules</a></li><li class="toc-h2"><a href="/docs/en/licensed_serving_spark_nlp_via_api_synapseml">Serving Spark NLP&#58 SynapseML</a></li><li class="toc-h2"><a href="/docs/en/licensed_serving_spark_nlp_via_api_fastapi">Serving Spark NLP&#58 FastAPI</a></li><li class="toc-h2"><a href="/licensed/api/">Scala API (Scaladoc)</a></li><li class="toc-h2"><a href="/licensed/api/python">Python API (Sphinx)</a></li><li class="toc-h2"><a href="/docs/en/wiki">Wiki</a></li><li class="toc-h2"><a href="/docs/en/benchmark">Cluster Speed Benchmarks</a></li><li class="toc-h2"><a href="/docs/en/cpu-ner-benchmark">CPU NER Benchmarks</a></li><li class="toc-h2"><a href="/docs/en/CPUvsGPUbenchmark_healthcare">GPU vs CPU benchmarks</a></li><li class="toc-h2"><a href="/docs/en/best_practices_pretrained_models">Best Practices Using Pretrained Models Together</a></li><li class="toc-h1">Healthcare NLP</li><li class="toc-h2"><a href="/docs/en/licensed_release_notes">Release Notes</a></li><li class="toc-h2"><a href="/models?edition=Spark+NLP+for+Healthcare">Healthcare Models</a></li><li class="toc-h2"><a href="/docs/en/licensed_version_compatibility">Version Compatibility</a></li><li class="toc-h1">Finance NLP</li><li class="toc-h2"><a href="/docs/en/financial_release_notes">Release Notes</a></li><li class="toc-h2"><a href="/models?edition=Spark+NLP+for+Finance">Financial Models</a></li><li class="toc-h2"><a href="/docs/en/financial_version_compatibility">Version Compatibility</a></li><li class="toc-h1">Legal NLP</li><li class="toc-h2"><a href="/docs/en/legal_release_notes">Release Notes</a></li><li class="toc-h2"><a href="/models?edition=Spark+NLP+for+Legal">Legal Models</a></li><li class="toc-h2"><a href="/docs/en/legal_version_compatibility">Version Compatibility</a></li></ul></div></div><div class="page__main js-page-main has-aside cell cell--auto">
+</a><div class="sidebar-toc"><ul class="toc toc--navigator"><li class="toc-h1">All Enterprise libraries</li><li class="toc-h2"><a href="/docs/en/license_getting_started">Getting Started</a></li><li class="toc-h2 active"><a href="/docs/en/licensed_install">Installation</a></li><li class="toc-h2"><a href="/docs/en/licensed_annotators">Annotators</a></li><li class="toc-h2"><a href="/docs/en/licensed_training">Training</a></li><li class="toc-h2"><a href="/docs/en/evaluation">Evaluation</a></li><li class="toc-h2"><a href="/docs/en/healthcare_risk_adjustments_score_calculation">Risk Adjustments Score Calculation</a></li><li class="toc-h2"><a href="/docs/en/utility_helper_modules">Utility & Helper Modules</a></li><li class="toc-h2"><a href="/docs/en/licensed_serving_spark_nlp_via_api_synapseml">Serving Spark NLP&#58 SynapseML</a></li><li class="toc-h2"><a href="/docs/en/licensed_serving_spark_nlp_via_api_fastapi">Serving Spark NLP&#58 FastAPI</a></li><li class="toc-h2"><a href="/licensed/api/">Scala API (Scaladoc)</a></li><li class="toc-h2"><a href="/licensed/api/python">Python API (Sphinx)</a></li><li class="toc-h2"><a href="/docs/en/wiki">Wiki</a></li><li class="toc-h2"><a href="/docs/en/benchmark">Cluster Speed Benchmarks</a></li><li class="toc-h2"><a href="/docs/en/cpu-ner-benchmark">CPU NER Benchmarks</a></li><li class="toc-h2"><a href="/docs/en/CPUvsGPUbenchmark_healthcare">GPU vs CPU benchmarks</a></li><li class="toc-h2"><a href="/docs/en/best_practices_pretrained_models">Best Practices Using Pretrained Models Together</a></li><li class="toc-h1">Healthcare NLP</li><li class="toc-h2"><a href="/docs/en/spark_nlp_healthcare_versions/licensed_release_notes">Release Notes</a></li><li class="toc-h2"><a href="/models?edition=Spark+NLP+for+Healthcare">Healthcare Models</a></li><li class="toc-h2"><a href="/docs/en/licensed_version_compatibility">Version Compatibility</a></li><li class="toc-h1">Finance NLP</li><li class="toc-h2"><a href="/docs/en/financial_release_notes">Release Notes</a></li><li class="toc-h2"><a href="/models?edition=Spark+NLP+for+Finance">Financial Models</a></li><li class="toc-h2"><a href="/docs/en/financial_version_compatibility">Version Compatibility</a></li><li class="toc-h1">Legal NLP</li><li class="toc-h2"><a href="/docs/en/legal_release_notes">Release Notes</a></li><li class="toc-h2"><a href="/models?edition=Spark+NLP+for+Legal">Legal Models</a></li><li class="toc-h2"><a href="/docs/en/legal_version_compatibility">Version Compatibility</a></li></ul></div></div><div class="page__main js-page-main has-aside cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59JLR64"
@@ -776,20 +776,21 @@ spark-submit <span class="nt">--packages</span> com.johnsnowlabs.nlp:spark-nlp_2
 
   <ul>
     <li>List of <a href="/docs/en/install#databricks-support">tested runtimes</a>.</li>
-    <li>Recommended instance type <code class="language-plaintext highlighter-rouge">Standard_F8s_v2 (16 GB Memory, 8 Cores)</code> or better.</li>
+    <li>Recommended instance type <code class="language-plaintext highlighter-rouge">Standard_F8s_v2 (16 GB Memory, 8 Cores)</code> or higher.</li>
+    <li>The installation takes around 15 minutes.</li>
   </ul>
 
   <h3 id="connection-via-databricks-partner-connect">Connection via Databricks Partner connect</h3>
 
-  <p>Databricks has an integration of Spark NLP libraries via Partner connect. If you are <a href="https://docs.databricks.com/integrations/partner-connect/index.html?#requirements-1">eligible</a>, you can <a href="https://docs.databricks.com/integrations/partner-connect/index.html?#quickstart-connect-to-a-partner-solution-using-partner-connect">connect</a> your Databricks workspace to John Snow Labs. You will be redirected to John Snow Labs portal. You can purchase a license, thereby filling in your credit card information. It will create a new Databricks cluster, and the license files are then directly installed there.</p>
+  <p>Databricks has an integration of Spark NLP libraries via Partner Connect. If you are <a href="https://docs.databricks.com/integrations/partner-connect/index.html?#requirements-1">eligible</a>, you can <a href="https://docs.databricks.com/integrations/partner-connect/index.html?#quickstart-connect-to-a-partner-solution-using-partner-connect">connect</a> your Databricks workspace to John Snow Labs. The Partner Connect wizard  will redirect you to John Snow Labs portal. After you fill-in/validate your information a 30-day trial license will be automatically generated for you. A new Databricks cluster will also be created, and all necessary resources to run the library on your account will be installed on your new cluster. Furthermore, a set of ready to use notebooks will be copied to your workspace, so you can start experimenting on your data right away. The trial license file will also be deployed to your environment and made available to your cluster.</p>
 
-  <p>There is a 30-days free trial licensing period. You can use the trial period only once. After the trial period, we will contact you with a licensing offer.</p>
+  <p>The trial period is 30 days. You can use the trial period only once. After the trial period, we will contact you with a licensing offer.</p>
 
   <ul>
     <li>Start exploring preloaded notebooks <code class="language-plaintext highlighter-rouge">Workspace -&gt; Shared -&gt; John Snow Labs</code></li>
   </ul>
 
-  <h3 id="automatic-deployment-of-john-snow-labs-nlp-libraries">Automatic deployment of John Snow Labs NLP libraries</h3>
+  <h3 id="automatic-deployment-of-john-snow-labs-nlp-libraries-from-wwwjohnsnowlabscomdatabricks">Automatic deployment of John Snow Labs NLP libraries from <a href="https://www.johnsnowlabs.com/databricks/">www.johnsnowlabs.com/databricks</a></h3>
 
   <p>Alternatively, you can automatically deploy John Snow Labs libraries on Databricks by filling in the form available <a href="https://www.johnsnowlabs.com/databricks/">here</a>. This will allow you to start a 30-day free trial with no limit on the amount of processed data. You just need to provide a Databricks Access Token that is used by our deployment script to connect to your Databricks instance and install John Snow Labs NLP libraries on a cluster of your choice.</p>
 
@@ -797,19 +798,29 @@ spark-submit <span class="nt">--packages</span> com.johnsnowlabs.nlp:spark-nlp_2
     <li>Start exploring preloaded notebooks <code class="language-plaintext highlighter-rouge">Workspace -&gt; Shared -&gt; John Snow Labs</code></li>
   </ul>
 
-  <h3 id="automatic-deployment-via-myjohnsnowlabscom">Automatic deployment via my.JohnSnowLabs.com</h3>
+  <h3 id="automatic-deployment-via-myjohnsnowlabscom">Automatic deployment via <a href="https://my.JohnSnowLabs.com">my.JohnSnowLabs.com</a></h3>
 
   <p>Login to your account on my.JohnSnowLabs.com, navigate to ‘My Subscriptions’ page, and identify your license for Databricks. Click on the three dots as illustrated in the image below, then select the <code class="language-plaintext highlighter-rouge">Install On Cluster</code> option.</p>
 
   <p><img class="image image--xl" src="/assets/images/myJSLdeployment.png" style="width:100%; align:center; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);" /></p>
 
-  <p>On the install form, provide an access token for this account and then select the cluster where you want to install the libraries. The installation takes around 15 minutes. Once it is done, you will get an email with information on the status of your deployment and on how to get started with the libraries.</p>
+  <p>On the install form, provide an access token for this account and then select the cluster where you want to install the libraries. Once it is done, you will get an email with information on the status of your deployment and on how to get started with the libraries.</p>
 
   <p><img class="image image--xl" src="/assets/images/install_form.png" style="width:100%; align:center; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);" /></p>
+
+  <h3 id="automatic-deployment-or-upgrade-from-the-databricks-workspace">Automatic deployment or upgrade from the Databricks workspace</h3>
+
+  <p>If you have already deployed the libraries in the past, you have a script <code class="language-plaintext highlighter-rouge">Workspace -&gt; Shared -&gt; John Snow Labs -&gt; Install JohnSnowLabs NLP</code>. If you attach it to any cluster and run it, it will reinstall the libraries on the respective cluster.</p>
+
+  <ul>
+    <li>This is also the recommended way to upgrade to the latest versions of the libraries.</li>
+  </ul>
+
   <h3 id="manual-deployment-of-enterprise-spark-nlp">Manual deployment of Enterprise Spark NLP</h3>
+  <p>Automatic deployment is the preferred option.</p>
 
   <ol>
-    <li>Create a cluster if you don’t have one already</li>
+    <li>Create a cluster with one of the <a href="/docs/en/install#databricks-support">supported runtimes</a> if you don’t have one already.</li>
     <li>
       <p>On a new cluster or existing one you need to add the following to the <code class="language-plaintext highlighter-rouge">Advanced Options -&gt; Spark</code> tab, in <code class="language-plaintext highlighter-rouge">Spark.Config</code> box:</p>
 
@@ -823,9 +834,8 @@ spark-submit <span class="nt">--packages</span> com.johnsnowlabs.nlp:spark-nlp_2
       <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>xxx
  <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>yyy
  <span class="nv">SPARK_NLP_LICENSE</span><span class="o">=</span>zzz
- <span class="nv">SPARK_OCR_LICENSE</span><span class="o">=</span>aaa
 </code></pre></div>      </div>
-      <p>Note: Enterprise Spark NLP also support reading the license from the Databricks DFS, on the fixed location, dbfs:/FileStore/johnsnowlabs/license.key. 
+      <p>Note: Enterprise Spark NLP also support reading the license from the Databricks DFS, on the fixed location, <code class="language-plaintext highlighter-rouge">dbfs:/FileStore/johnsnowlabs/license.key</code>.
 The precedence for that location is the highest, so make sure that file is not containing any outdated license key.</p>
 
       <ul>
@@ -853,14 +863,16 @@ The precedence for that location is the highest, so make sure that file is not c
     </li>
     <li>In <code class="language-plaintext highlighter-rouge">Libraries</code> tab inside your cluster you need to follow these steps:
       <ul>
-        <li>Install New -&gt; PyPI -&gt; <code class="language-plaintext highlighter-rouge">spark-nlp</code> -&gt; Install</li>
-        <li>Install New -&gt; Maven -&gt; Coordinates -&gt; <code class="language-plaintext highlighter-rouge">com.johnsnowlabs.nlp:spark-nlp_2.12:${version}</code> -&gt; Install</li>
+        <li><a href="https://nlp.johnsnowlabs.com/docs/en/licensed_version_compatibility">Lookup</a> the version of Healhcare NLP vs. Spark NLP you will install.</li>
+        <li>Install Spark NLP (Public): New -&gt; PyPI -&gt; <code class="language-plaintext highlighter-rouge">spark-nlp==${x.y.z_public_version}</code> -&gt; Install</li>
+        <li>Install: New -&gt; Maven -&gt; Coordinates -&gt; <code class="language-plaintext highlighter-rouge">com.johnsnowlabs.nlp:spark-nlp_2.12:${x.y.z_public_version}</code> -&gt; Install</li>
         <li>Please add following jars:
           <ul>
-            <li>Install New -&gt; Python Whl -&gt; upload <code class="language-plaintext highlighter-rouge">https://pypi.johnsnowlabs.com/${secret.code}/spark-nlp-jsl/spark_nlp_jsl-${version}-py3-none-any.whl</code></li>
-            <li>Install New -&gt; Jar -&gt; upload <code class="language-plaintext highlighter-rouge">https://pypi.johnsnowlabs.com/${secret.code}/spark-nlp-jsl-${version}.jar</code></li>
+            <li>Install: New -&gt; Python Whl -&gt; upload <code class="language-plaintext highlighter-rouge">https://pypi.johnsnowlabs.com/${secret.code}/spark-nlp-jsl/spark_nlp_jsl-${x.y.z_healthcare_version}-py3-none-any.whl</code></li>
+            <li>Install: New -&gt; Jar -&gt; upload <code class="language-plaintext highlighter-rouge">https://pypi.johnsnowlabs.com/${secret.code}/spark-nlp-jsl-${x.y.z_healthcare_version}.jar</code></li>
           </ul>
         </li>
+        <li>(For Legal and Finance NLP) Install: New -&gt; PyPI -&gt; <code class="language-plaintext highlighter-rouge">johnsnowlabs-for-databricks==${x.y.z_healthcare_version}</code> -&gt; Install</li>
       </ul>
     </li>
     <li>Now you can attach your notebook to the cluster and use Spark NLP!</li>
@@ -1737,58 +1749,34 @@ $(document).ready(function () {
 
 /* Responsive menu
 	 ========================================================*/
-jQuery(document).ready(function ($) {
-  jQuery('#responsive_menu').click(function (e) {
-    e.preventDefault();
-    jQuery(this).toggleClass('close');
-    jQuery('.top_navigation').toggleClass('open');
+jQuery(document).ready(function($) {
+	jQuery('#responsive_menu').click(function(e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('close');
+      jQuery('.top_navigation').toggleClass('open');
   });
-  jQuery('#aside_menu').click(function (e) {
-    e.preventDefault();
-    jQuery(this).toggleClass('close');
-    jQuery('.js-col-aside').toggleClass('open');
-    if (jQuery(window).width() <= 1023) {
-      jQuery('.page__sidebar').toggleClass('open');
+  jQuery('#aside_menu').click(function(e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('close');
+      jQuery('.js-col-aside').toggleClass('open');
+      if (jQuery(window).width() <= 1023)
+      {
+        jQuery('.page__sidebar').toggleClass('open'); 
       jQuery('.demomenu').toggleClass('open');
-    }
+      }
   });
-  jQuery('.toc--ellipsis a').click(function (e) {
-    if (jQuery(window).width() <= 767) {
-      jQuery('.js-col-aside').removeClass('open');
-      jQuery('.page__sidebar').removeClass('open');
-      jQuery('#aside_menu').removeClass('close');
-    }
+  jQuery('.toc--ellipsis a').click(function(e) {
+    if (jQuery(window).width() <= 767)
+      {
+        jQuery('.js-col-aside').removeClass('open');
+        jQuery('.page__sidebar').removeClass('open');    
+        jQuery('#aside_menu').removeClass('close');  
+      }       
   });
 });
 
-/*TABS*/
-/* function openTabCall(cityName){
-  // Declare all variables
-  var i, tabcontent, tablinks;
-
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-}
-
-function openTab(evt, cityName) {
-  openTabCall(cityName);
-  evt.currentTarget.className += " active";
-} */
-
 /*OPen by URL*/
-jQuery(document).ready(function () {
+jQuery(document).ready(function () {  
   const tabName = (window.location.hash || '').replace('#', '');
   const tab = document.getElementById(tabName || 'opensource');
   if (tab) {
@@ -1797,49 +1785,49 @@ jQuery(document).ready(function () {
 });
 
 //Accordion demos categories
-if (document.querySelector('.acc-top')) {
-  let acc = document.getElementsByClassName('acc-top'),
+if(document.querySelector(".acc-top")) {
+  let acc = document.getElementsByClassName("acc-top"),
     isResizeble = false;
 
-  if (!isResizeble && document.querySelector('.acc-top')) {
-    let accBody = document.querySelector('.acc-body li.active');
-    accBody.parentElement.style.maxHeight =
-      accBody.parentElement.scrollHeight + 20 + 'px';
-    accBody.parentElement.classList.add('open');
-    accBody.parentElement.previousElementSibling.classList.add('active');
-    isResizeble = true;
+  if(!isResizeble && document.querySelector(".acc-top")) {
+      let accBody = document.querySelector('.acc-body li.active');
+      accBody.parentElement.style.maxHeight = accBody.parentElement.scrollHeight + 20 + "px";
+      accBody.parentElement.classList.add('open');
+      accBody.parentElement.previousElementSibling.classList.add('active');
+      isResizeble = true;
   }
 
-  for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener('click', function () {
-      this.classList.toggle('active');
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-        panel.classList.remove('open');
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + 20 + 'px';
-        panel.classList.add('open');
-      }
-    });
-  }
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+      panel.classList.remove('open');
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 20 + "px";
+      panel.classList.add('open');
+    }
+  });
+}
 }
 
+
 //Show more in demos description
-if (document.querySelector('.tab-description')) {
+if(document.querySelector('.tab-description')) {
   let tabDescription = document.querySelectorAll('.tab-description');
 
-  tabDescription.forEach((element) => {
+  tabDescription.forEach(element => {
     let tabDescriptionInner = element.querySelector('.tab-description-inner');
-    if (element.offsetHeight < tabDescriptionInner.offsetHeight) {
+    if(element.offsetHeight < tabDescriptionInner.offsetHeight) {
       element.classList.add('big-descr');
     }
   });
 
   let showMore = document.querySelectorAll('.show_more');
 
-  showMore.forEach((element) => {
-    element.addEventListener('click', function (e) {
+  showMore.forEach(element => {
+    element.addEventListener("click", function(e) {
       e.preventDefault();
       this.parentElement.parentElement.classList.remove('big-descr');
       this.parentElement.parentElement.classList.add('big-descr-close');
@@ -1847,47 +1835,74 @@ if (document.querySelector('.tab-description')) {
   });
 }
 
+
 //disable Colab link
-if (document.querySelector('.btn.disable')) {
+if(document.querySelector('.btn.disable')) {
   let btnDisable = document.querySelectorAll('.btn.disable');
 
-  btnDisable.forEach((element) => {
-    element.addEventListener('click', function (e) {
+  btnDisable.forEach(element => {
+    element.addEventListener("click", function(e) {
       e.preventDefault();
     });
   });
 }
 
+
 // Ancor click
 const anchors = [].slice.call(document.querySelectorAll('.btn-box-install a')),
-  animationTime = 300,
-  framesCount = 20;
+      animationTime = 300,
+      framesCount = 20;
 
-anchors.forEach(function (item) {
-  item.addEventListener('click', function (e) {
-    e.preventDefault();
-    let coordY =
-      document.querySelector(item.getAttribute('href')).getBoundingClientRect()
-        .top +
-      window.pageYOffset -
-      100;
-
-    let scroller = setInterval(function () {
-      let scrollBy = coordY / framesCount;
-
-      if (
-        scrollBy > window.pageYOffset - coordY &&
-        window.innerHeight + window.pageYOffset < document.body.offsetHeight
-      ) {
-        window.scrollBy(0, scrollBy);
+anchors.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top + window.pageYOffset -100;
+    
+        let scroller = setInterval(function() {
+            let scrollBy = coordY / framesCount;
+      
+      if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+          window.scrollBy(0, scrollBy);
       } else {
-        window.scrollTo(0, coordY);
+                window.scrollTo(0, coordY);
         clearInterval(scroller);
       }
-    }, animationTime / framesCount);
+        }, animationTime / framesCount);
   });
-});
+}); 
 
+
+//Pagination active
+if(document.querySelector('.pagination_big')) {
+  let paginationItems = document.querySelectorAll('.pagination_big li'),
+      nextVersionContainer = document.querySelector('#nextver'),
+      previosVersionContainer = document.querySelector('#previosver'),
+      currentVersionContainer = document.querySelector('#currversion'),
+      currentPageTitle = document.querySelector('#section').innerText;
+
+  // Set active page and update version containers
+  for (let i = 0; i < paginationItems.length; i++) {
+    const item = paginationItems[i];
+    const itemTitle = item.firstElementChild.innerHTML;
+    if (itemTitle === currentPageTitle) {
+      item.classList.add('active');
+      currentVersionContainer.textContent = itemTitle;       
+      if(item.previousElementSibling) {
+        previosVersionContainer.textContent = item.previousElementSibling.innerText; 
+        previosVersionContainer.parentElement.href += item.previousElementSibling.innerText.replaceAll('.', '_');
+      } else {
+        previosVersionContainer.parentElement.parentElement.classList.add('hide');
+      }
+      if(item.nextElementSibling) {
+        nextVersionContainer.textContent = item.nextElementSibling.innerText;
+        nextVersionContainer.parentElement.href += item.nextElementSibling.innerText.replaceAll('.', '_');
+      } else {
+        nextVersionContainer.parentElement.parentElement.classList.add('hide');
+      }         
+      break;
+    }
+  }
+}
 // copy to clipboard
 if (document.querySelector('.button-copy-s3')) {
   let btnCopy = document.querySelectorAll('.button-copy-s3');

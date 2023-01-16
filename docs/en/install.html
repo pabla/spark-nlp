@@ -534,22 +534,22 @@
 <!-- end custom article top snippet --><div class="article__content" itemprop="articleBody"><h2 id="spark-nlp-cheatsheet">Spark NLP Cheatsheet</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install Spark NLP from PyPI</span>
-pip <span class="nb">install </span>spark-nlp<span class="o">==</span>4.2.5
+pip <span class="nb">install </span>spark-nlp<span class="o">==</span>4.2.7
 
 <span class="c"># Install Spark NLP from Anacodna/Conda</span>
 conda <span class="nb">install</span> <span class="nt">-c</span> johnsnowlabs spark-nlp
 
 <span class="c"># Load Spark NLP with Spark Shell</span>
-spark-shell <span class="nt">--packages</span> com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.5
+spark-shell <span class="nt">--packages</span> com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.7
 
 <span class="c"># Load Spark NLP with PySpark</span>
-pyspark <span class="nt">--packages</span> com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.5
+pyspark <span class="nt">--packages</span> com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.7
 
 <span class="c"># Load Spark NLP with Spark Submit</span>
-spark-submit <span class="nt">--packages</span> com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.5
+spark-submit <span class="nt">--packages</span> com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.7
 
 <span class="c"># Load Spark NLP as external JAR after compiling and building Spark NLP by `sbt assembly`</span>
-spark-shell <span class="nt">--jars</span> spark-nlp-assembly-4.2.5.jar
+spark-shell <span class="nt">--jars</span> spark-nlp-assembly-4.2.7.jar
 </code></pre></div></div>
 
 <h2 id="python">Python</h2>
@@ -563,7 +563,7 @@ spark-shell <span class="nt">--jars</span> spark-nlp-assembly-4.2.5.jar
 <span class="c"># should be Java 8 (Oracle or OpenJDK)</span>
 <span class="nv">$ </span>conda create <span class="nt">-n</span> sparknlp <span class="nv">python</span><span class="o">=</span>3.8 <span class="nt">-y</span>
 <span class="nv">$ </span>conda activate sparknlp
-<span class="nv">$ </span>pip <span class="nb">install </span>spark-nlp<span class="o">==</span>4.2.5 <span class="nv">pyspark</span><span class="o">==</span>3.2.1
+<span class="nv">$ </span>pip <span class="nb">install </span>spark-nlp<span class="o">==</span>4.2.7 <span class="nv">pyspark</span><span class="o">==</span>3.2.3
 </code></pre></div></div>
 
 <p>Of course you will need to have jupyter installed in your system:</p>
@@ -586,7 +586,7 @@ spark-shell <span class="nt">--jars</span> spark-nlp-assembly-4.2.5.jar
     <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"spark.driver.memory"</span><span class="p">,</span><span class="s">"16G"</span><span class="p">)</span>\
     <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"spark.driver.maxResultSize"</span><span class="p">,</span> <span class="s">"0"</span><span class="p">)</span> \
     <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"spark.kryoserializer.buffer.max"</span><span class="p">,</span> <span class="s">"2000M"</span><span class="p">)</span>\
-    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"spark.jars.packages"</span><span class="p">,</span> <span class="s">"com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.5"</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"spark.jars.packages"</span><span class="p">,</span> <span class="s">"com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.7"</span><span class="p">)</span>\
     <span class="p">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 </code></pre></div></div>
 
@@ -600,7 +600,7 @@ spark-shell <span class="nt">--jars</span> spark-nlp-assembly-4.2.5.jar
 <span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>com.johnsnowlabs.nlp<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>spark-nlp_2.12<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>4.2.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>4.2.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div></div>
 
@@ -610,7 +610,7 @@ spark-shell <span class="nt">--jars</span> spark-nlp-assembly-4.2.5.jar
 <span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>com.johnsnowlabs.nlp<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>spark-nlp-gpu_2.12<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>4.2.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>4.2.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div></div>
 
@@ -620,7 +620,7 @@ spark-shell <span class="nt">--jars</span> spark-nlp-assembly-4.2.5.jar
 <span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>com.johnsnowlabs.nlp<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>spark-nlp-m1_2.12<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>4.2.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>4.2.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div></div>
 
@@ -630,7 +630,7 @@ spark-shell <span class="nt">--jars</span> spark-nlp-assembly-4.2.5.jar
 <span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>com.johnsnowlabs.nlp<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>spark-nlp-aarch64_2.12<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>4.2.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>4.2.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div></div>
 
@@ -639,25 +639,25 @@ spark-shell <span class="nt">--jars</span> spark-nlp-assembly-4.2.5.jar
 <p><strong>spark-nlp</strong> on Apache Spark 3.0.x, 3.1.x, 3.2.x, and 3.3.x:</p>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// https://mvnrepository.com/artifact/com.johnsnowlabs.nlp/spark-nlp</span>
-<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.johnsnowlabs.nlp"</span> <span class="o">%%</span> <span class="s">"spark-nlp"</span> <span class="o">%</span> <span class="s">"4.2.5"</span>
+<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.johnsnowlabs.nlp"</span> <span class="o">%%</span> <span class="s">"spark-nlp"</span> <span class="o">%</span> <span class="s">"4.2.7"</span>
 </code></pre></div></div>
 
 <p><strong>spark-nlp-gpu:</strong></p>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// https://mvnrepository.com/artifact/com.johnsnowlabs.nlp/spark-nlp-gpu</span>
-<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.johnsnowlabs.nlp"</span> <span class="o">%%</span> <span class="s">"spark-nlp-gpu"</span> <span class="o">%</span> <span class="s">"4.2.5"</span>
+<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.johnsnowlabs.nlp"</span> <span class="o">%%</span> <span class="s">"spark-nlp-gpu"</span> <span class="o">%</span> <span class="s">"4.2.7"</span>
 </code></pre></div></div>
 
 <p><strong>spark-nlp-m1:</strong></p>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// https://mvnrepository.com/artifact/com.johnsnowlabs.nlp/spark-nlp-m1</span>
-<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.johnsnowlabs.nlp"</span> <span class="o">%%</span> <span class="s">"spark-nlp-m1"</span> <span class="o">%</span> <span class="s">"4.2.5"</span>
+<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.johnsnowlabs.nlp"</span> <span class="o">%%</span> <span class="s">"spark-nlp-m1"</span> <span class="o">%</span> <span class="s">"4.2.7"</span>
 </code></pre></div></div>
 
 <p><strong>spark-nlp-aarch64:</strong></p>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// https://mvnrepository.com/artifact/com.johnsnowlabs.nlp/spark-nlp-aarch64</span>
-<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.johnsnowlabs.nlp"</span> <span class="o">%%</span> <span class="s">"spark-nlp-aarch64"</span> <span class="o">%</span> <span class="s">"4.2.5"</span>
+<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.johnsnowlabs.nlp"</span> <span class="o">%%</span> <span class="s">"spark-nlp-aarch64"</span> <span class="o">%</span> <span class="s">"4.2.7"</span>
 </code></pre></div></div>
 
 <p>Maven Central: <a href="https://mvnrepository.com/artifact/com.johnsnowlabs.nlp">https://mvnrepository.com/artifact/com.johnsnowlabs.nlp</a></p>
@@ -737,14 +737,14 @@ maven coordinates like these:</p>
 <span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>com.johnsnowlabs.nlp<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>spark-nlp-m1_2.12<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>4.2.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>4.2.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div></div>
 
 <p>or in case of sbt:</p>
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// https://mvnrepository.com/artifact/com.johnsnowlabs.nlp/spark-nlp</span>
-<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.johnsnowlabs.nlp"</span> <span class="o">%%</span> <span class="s">"spark-nlp-m1"</span> <span class="o">%</span> <span class="s">"4.2.5"</span>
+<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.johnsnowlabs.nlp"</span> <span class="o">%%</span> <span class="s">"spark-nlp-m1"</span> <span class="o">%</span> <span class="s">"4.2.7"</span>
 </code></pre></div></div>
 
 <p>If everything went well, you can now start Spark NLP with the <code class="language-plaintext highlighter-rouge">m1</code> flag set to <code class="language-plaintext highlighter-rouge">true</code>:</p>
@@ -774,7 +774,7 @@ It is also recommended to use a virtual environment for this.</p>
 
 <h2 id="installation-for-linux-aarch64-systems">Installation for Linux Aarch64 Systems</h2>
 
-<p>Starting from version 4.2.5, Spark NLP supports Linux systems running on an aarch64
+<p>Starting from version 4.2.7, Spark NLP supports Linux systems running on an aarch64
 processor architecture. The necessary dependencies have been built on Ubuntu 16.04, so a
 recent system with an environment of at least that will be needed.</p>
 
@@ -814,7 +814,7 @@ to install Spark NLP for your system.</p>
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -p is for pyspark</span>
 <span class="c"># -s is for spark-nlp</span>
 <span class="c"># by default they are set to the latest</span>
-<span class="o">!</span>wget http://setup.johnsnowlabs.com/colab.sh <span class="nt">-O</span> - | bash /dev/stdin <span class="nt">-p</span> 3.2.1 <span class="nt">-s</span> 4.2.5
+<span class="o">!</span>wget http://setup.johnsnowlabs.com/colab.sh <span class="nt">-O</span> - | bash /dev/stdin <span class="nt">-p</span> 3.2.3 <span class="nt">-s</span> 4.2.7
 </code></pre></div></div>
 
 <p><a href="https://colab.research.google.com/github/JohnSnowLabs/spark-nlp-workshop/blob/master/jupyter/quick_start_google_colab.ipynb">Spark NLP quick start on Google Colab</a> is a live demo on Google Colab that performs named entity recognitions and sentiment analysis by using Spark NLP pretrained pipelines.</p>
@@ -831,7 +831,7 @@ to install Spark NLP for your system.</p>
 
 <h2 id="databricks-support">Databricks Support</h2>
 
-<p>Spark NLP 4.2.5 has been tested and is compatible with the following runtimes:</p>
+<p>Spark NLP 4.2.7 has been tested and is compatible with the following runtimes:</p>
 
 <p><strong>CPU:</strong></p>
 
@@ -889,7 +889,7 @@ to install Spark NLP for your system.</p>
 
     <p>3.1. Install New -&gt; PyPI -&gt; <code class="language-plaintext highlighter-rouge">spark-nlp</code> -&gt; Install</p>
 
-    <p>3.2. Install New -&gt; Maven -&gt; Coordinates -&gt; <code class="language-plaintext highlighter-rouge">com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.5</code> -&gt; Install</p>
+    <p>3.2. Install New -&gt; Maven -&gt; Coordinates -&gt; <code class="language-plaintext highlighter-rouge">com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.7</code> -&gt; Install</p>
   </li>
   <li>
     <p>Now you can attach your notebook to the cluster and use Spark NLP!</p>
@@ -908,7 +908,7 @@ to install Spark NLP for your system.</p>
 
 <h2 id="emr-support">EMR Support</h2>
 
-<p>Spark NLP 4.2.5 has been tested and is compatible with the following EMR releases:</p>
+<p>Spark NLP 4.2.7 has been tested and is compatible with the following EMR releases:</p>
 
 <ul>
   <li>emr-6.2.0</li>
@@ -962,7 +962,7 @@ export SPARK_HOME=/usr/lib/spark'</span> <span class="o">&gt;&gt;</span> <span c
       </span><span class="nl">"spark.kryoserializer.buffer.max"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000M"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"spark.serializer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"org.apache.spark.serializer.KryoSerializer"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"spark.driver.maxResultSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"spark.jars.packages"</span><span class="p">:</span><span class="w"> </span><span class="s2">"com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.5"</span><span class="w">
+      </span><span class="nl">"spark.jars.packages"</span><span class="p">:</span><span class="w"> </span><span class="s2">"com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.7"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -971,7 +971,7 @@ export SPARK_HOME=/usr/lib/spark'</span> <span class="o">&gt;&gt;</span> <span c
 <p>A sample of AWS CLI to launch EMR cluster:</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws emr create-cluster <span class="se">\</span>
-<span class="nt">--name</span> <span class="s2">"Spark NLP 4.2.5"</span> <span class="se">\</span>
+<span class="nt">--name</span> <span class="s2">"Spark NLP 4.2.7"</span> <span class="se">\</span>
 <span class="nt">--release-label</span> emr-6.2.0 <span class="se">\</span>
 <span class="nt">--applications</span> <span class="nv">Name</span><span class="o">=</span>Hadoop <span class="nv">Name</span><span class="o">=</span>Spark <span class="nv">Name</span><span class="o">=</span>Hive <span class="se">\</span>
 <span class="nt">--instance-type</span> m4.4xlarge <span class="se">\</span>
@@ -1076,7 +1076,7 @@ python3 <span class="nt">-m</span> venv .sparknlp-env
 
 <p>Now, we can start installing the required libraries:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span><span class="nv">pyspark</span><span class="o">==</span>3.2.1
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span><span class="nv">pyspark</span><span class="o">==</span>3.2.3
 pip <span class="nb">install </span>spark-nlp
 </code></pre></div></div>
 
@@ -1139,7 +1139,7 @@ RUN apt-get clean <span class="o">&amp;&amp;</span> <span class="nb">rm</span> <
 RUN pip3 <span class="nb">install</span> <span class="nt">--upgrade</span> pip
 <span class="c"># You only need pyspark and spark-nlp paclages to use Spark NLP</span>
 <span class="c"># The rest of the PyPI packages are here as examples</span>
-RUN pip3 <span class="nb">install</span> <span class="nt">--no-cache-dir</span> pyspark spark-nlp<span class="o">==</span>3.2.1 <span class="nv">notebook</span><span class="o">==</span>5.<span class="k">*</span> numpy pandas mlflow Keras scikit-spark scikit-learn scipy matplotlib pydot <span class="nv">tensorflow</span><span class="o">==</span>2.4.1 graphviz
+RUN pip3 <span class="nb">install</span> <span class="nt">--no-cache-dir</span> pyspark spark-nlp<span class="o">==</span>3.2.3 <span class="nv">notebook</span><span class="o">==</span>5.<span class="k">*</span> numpy pandas mlflow Keras scikit-spark scikit-learn scipy matplotlib pydot <span class="nv">tensorflow</span><span class="o">==</span>2.4.1 graphviz
 
 <span class="c"># Make sure the contents of our repo are in ${HOME}</span>
 RUN <span class="nb">mkdir</span> <span class="nt">-p</span> /home/jovyan/tutorials
@@ -1175,7 +1175,7 @@ CMD <span class="o">[</span><span class="s2">"jupyter"</span>, <span class="s2">
 
 <h3 id="how-to-correctly-install-spark-nlp-on-windows">How to correctly install Spark NLP on Windows</h3>
 
-<p>Follow the below steps to set up Spark NLP with Spark 3.2.1:</p>
+<p>Follow the below steps to set up Spark NLP with Spark 3.2.3:</p>
 
 <ol>
   <li>Download <a href="https://adoptopenjdk.net/?variant=openjdk8&amp;jvmVariant=hotspot">Adopt OpenJDK 1.8</a>
@@ -1187,11 +1187,11 @@ CMD <span class="o">[</span><span class="s2">"jupyter"</span>, <span class="s2">
   </li>
   <li>Download the pre-compiled Hadoop binaries <code class="language-plaintext highlighter-rouge">winutils.exe</code>, <code class="language-plaintext highlighter-rouge">hadoop.dll</code> and put it in a folder called <code class="language-plaintext highlighter-rouge">C:\hadoop\bin</code> from <a href="https://github.com/cdarlint/winutils/tree/master/hadoop-3.2.0/bin">https://github.com/cdarlint/winutils/tree/master/hadoop-3.2.0/bin</a>
     <ul>
-      <li><strong>Note:</strong> The version above is for Spark 3.2.1, which was built for Hadoop 3.2.0. You might have to change the hadoop version in the link, depending on which Spark version you are using.</li>
+      <li><strong>Note:</strong> The version above is for Spark 3.2.3, which was built for Hadoop 3.2.0. You might have to change the hadoop version in the link, depending on which Spark version you are using.</li>
     </ul>
   </li>
   <li>
-    <p>Download <a href="https://www.apache.org/dyn/closer.lua/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz">Apache Spark 3.2.1</a> and extract it to <code class="language-plaintext highlighter-rouge">C:\spark</code>.</p>
+    <p>Download <a href="https://www.apache.org/dyn/closer.lua/spark/spark-3.2.3/spark-3.2.3-bin-hadoop3.2.tgz">Apache Spark 3.2.3</a> and extract it to <code class="language-plaintext highlighter-rouge">C:\spark</code>.</p>
   </li>
   <li>
     <p>Set/add environment variables for <code class="language-plaintext highlighter-rouge">HADOOP_HOME</code> to <code class="language-plaintext highlighter-rouge">C:\hadoop</code> and <code class="language-plaintext highlighter-rouge">SPARK_HOME</code> to <code class="language-plaintext highlighter-rouge">C:\spark</code>.</p>
@@ -1242,7 +1242,7 @@ the environment.</li>
 <p>Now you can use the downloaded binary by navigating to <code class="language-plaintext highlighter-rouge">%SPARK_HOME%\bin</code> and
 running</p>
 
-<p>Either create a conda env for python 3.6, install <em>pyspark==3.2.1 spark-nlp numpy</em> and use Jupyter/python console, or in the same conda env you can go to spark bin for <em>pyspark –packages com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.5</em>.</p>
+<p>Either create a conda env for python 3.6, install <em>pyspark==3.2.3 spark-nlp numpy</em> and use Jupyter/python console, or in the same conda env you can go to spark bin for <em>pyspark –packages com.johnsnowlabs.nlp:spark-nlp_2.12:4.2.7</em>.</p>
 
 <p><img class="image image--xl" src="/assets/images/installation/90126972-c03e5500-dd64-11ea-8285-e4f76aa9e543.jpg" style="width:100%; align:center; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);" /></p>
 
@@ -1269,13 +1269,13 @@ running</p>
     <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"spark.driver.memory"</span><span class="p">,</span><span class="s">"16G"</span><span class="p">)</span>\
     <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"spark.driver.maxResultSize"</span><span class="p">,</span> <span class="s">"0"</span><span class="p">)</span> \
     <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"spark.kryoserializer.buffer.max"</span><span class="p">,</span> <span class="s">"2000M"</span><span class="p">)</span>\
-    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"spark.jars"</span><span class="p">,</span> <span class="s">"/tmp/spark-nlp-assembly-4.2.5.jar"</span><span class="p">)</span>\
+    <span class="p">.</span><span class="n">config</span><span class="p">(</span><span class="s">"spark.jars"</span><span class="p">,</span> <span class="s">"/tmp/spark-nlp-assembly-4.2.7.jar"</span><span class="p">)</span>\
     <span class="p">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 </code></pre></div></div>
 
 <ul>
   <li>You can download provided Fat JARs from each <a href="https://github.com/JohnSnowLabs/spark-nlp/releases">release notes</a>, please pay attention to pick the one that suits your environment depending on the device (CPU/GPU) and Apache Spark version (3.x)</li>
-  <li>If you are local, you can load the Fat JAR from your local FileSystem, however, if you are in a cluster setup you need to put the Fat JAR on a distributed FileSystem such as HDFS, DBFS, S3, etc. (i.e., <code class="language-plaintext highlighter-rouge">hdfs:///tmp/spark-nlp-assembly-4.2.5.jar</code>)</li>
+  <li>If you are local, you can load the Fat JAR from your local FileSystem, however, if you are in a cluster setup you need to put the Fat JAR on a distributed FileSystem such as HDFS, DBFS, S3, etc. (i.e., <code class="language-plaintext highlighter-rouge">hdfs:///tmp/spark-nlp-assembly-4.2.7.jar</code>)</li>
 </ul>
 
 <p>Example of using pretrained Models and Pipelines in offline:</p>
@@ -1299,7 +1299,7 @@ running</p>
   <li>If you are local, you can load the model/pipeline from your local FileSystem, however, if you are in a cluster setup you need to put the model/pipeline on a distributed FileSystem such as HDFS, DBFS, S3, etc. (i.e., <code class="language-plaintext highlighter-rouge">hdfs:///tmp/explain_document_dl_en_2.0.2_2.4_1556530585689/</code>)</li>
 </ul>
 </div><div class="d-print-none"><footer class="article__footer"><span class="footer_date">Last updated
-      <time itemprop="dateModified" datetime="2022-11-28T00:00:00+00:00">Nov 28, 2022</time>
+      <time itemprop="dateModified" datetime="2022-12-21T00:00:00+00:00">Dec 21, 2022</time>
     </span><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet --></footer>
@@ -1722,58 +1722,34 @@ $(document).ready(function () {
 
 /* Responsive menu
 	 ========================================================*/
-jQuery(document).ready(function ($) {
-  jQuery('#responsive_menu').click(function (e) {
-    e.preventDefault();
-    jQuery(this).toggleClass('close');
-    jQuery('.top_navigation').toggleClass('open');
+jQuery(document).ready(function($) {
+	jQuery('#responsive_menu').click(function(e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('close');
+      jQuery('.top_navigation').toggleClass('open');
   });
-  jQuery('#aside_menu').click(function (e) {
-    e.preventDefault();
-    jQuery(this).toggleClass('close');
-    jQuery('.js-col-aside').toggleClass('open');
-    if (jQuery(window).width() <= 1023) {
-      jQuery('.page__sidebar').toggleClass('open');
+  jQuery('#aside_menu').click(function(e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('close');
+      jQuery('.js-col-aside').toggleClass('open');
+      if (jQuery(window).width() <= 1023)
+      {
+        jQuery('.page__sidebar').toggleClass('open'); 
       jQuery('.demomenu').toggleClass('open');
-    }
+      }
   });
-  jQuery('.toc--ellipsis a').click(function (e) {
-    if (jQuery(window).width() <= 767) {
-      jQuery('.js-col-aside').removeClass('open');
-      jQuery('.page__sidebar').removeClass('open');
-      jQuery('#aside_menu').removeClass('close');
-    }
+  jQuery('.toc--ellipsis a').click(function(e) {
+    if (jQuery(window).width() <= 767)
+      {
+        jQuery('.js-col-aside').removeClass('open');
+        jQuery('.page__sidebar').removeClass('open');    
+        jQuery('#aside_menu').removeClass('close');  
+      }       
   });
 });
 
-/*TABS*/
-/* function openTabCall(cityName){
-  // Declare all variables
-  var i, tabcontent, tablinks;
-
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-}
-
-function openTab(evt, cityName) {
-  openTabCall(cityName);
-  evt.currentTarget.className += " active";
-} */
-
 /*OPen by URL*/
-jQuery(document).ready(function () {
+jQuery(document).ready(function () {  
   const tabName = (window.location.hash || '').replace('#', '');
   const tab = document.getElementById(tabName || 'opensource');
   if (tab) {
@@ -1782,49 +1758,49 @@ jQuery(document).ready(function () {
 });
 
 //Accordion demos categories
-if (document.querySelector('.acc-top')) {
-  let acc = document.getElementsByClassName('acc-top'),
+if(document.querySelector(".acc-top")) {
+  let acc = document.getElementsByClassName("acc-top"),
     isResizeble = false;
 
-  if (!isResizeble && document.querySelector('.acc-top')) {
-    let accBody = document.querySelector('.acc-body li.active');
-    accBody.parentElement.style.maxHeight =
-      accBody.parentElement.scrollHeight + 20 + 'px';
-    accBody.parentElement.classList.add('open');
-    accBody.parentElement.previousElementSibling.classList.add('active');
-    isResizeble = true;
+  if(!isResizeble && document.querySelector(".acc-top")) {
+      let accBody = document.querySelector('.acc-body li.active');
+      accBody.parentElement.style.maxHeight = accBody.parentElement.scrollHeight + 20 + "px";
+      accBody.parentElement.classList.add('open');
+      accBody.parentElement.previousElementSibling.classList.add('active');
+      isResizeble = true;
   }
 
-  for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener('click', function () {
-      this.classList.toggle('active');
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-        panel.classList.remove('open');
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + 20 + 'px';
-        panel.classList.add('open');
-      }
-    });
-  }
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+      panel.classList.remove('open');
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 20 + "px";
+      panel.classList.add('open');
+    }
+  });
+}
 }
 
+
 //Show more in demos description
-if (document.querySelector('.tab-description')) {
+if(document.querySelector('.tab-description')) {
   let tabDescription = document.querySelectorAll('.tab-description');
 
-  tabDescription.forEach((element) => {
+  tabDescription.forEach(element => {
     let tabDescriptionInner = element.querySelector('.tab-description-inner');
-    if (element.offsetHeight < tabDescriptionInner.offsetHeight) {
+    if(element.offsetHeight < tabDescriptionInner.offsetHeight) {
       element.classList.add('big-descr');
     }
   });
 
   let showMore = document.querySelectorAll('.show_more');
 
-  showMore.forEach((element) => {
-    element.addEventListener('click', function (e) {
+  showMore.forEach(element => {
+    element.addEventListener("click", function(e) {
       e.preventDefault();
       this.parentElement.parentElement.classList.remove('big-descr');
       this.parentElement.parentElement.classList.add('big-descr-close');
@@ -1832,47 +1808,74 @@ if (document.querySelector('.tab-description')) {
   });
 }
 
+
 //disable Colab link
-if (document.querySelector('.btn.disable')) {
+if(document.querySelector('.btn.disable')) {
   let btnDisable = document.querySelectorAll('.btn.disable');
 
-  btnDisable.forEach((element) => {
-    element.addEventListener('click', function (e) {
+  btnDisable.forEach(element => {
+    element.addEventListener("click", function(e) {
       e.preventDefault();
     });
   });
 }
 
+
 // Ancor click
 const anchors = [].slice.call(document.querySelectorAll('.btn-box-install a')),
-  animationTime = 300,
-  framesCount = 20;
+      animationTime = 300,
+      framesCount = 20;
 
-anchors.forEach(function (item) {
-  item.addEventListener('click', function (e) {
-    e.preventDefault();
-    let coordY =
-      document.querySelector(item.getAttribute('href')).getBoundingClientRect()
-        .top +
-      window.pageYOffset -
-      100;
-
-    let scroller = setInterval(function () {
-      let scrollBy = coordY / framesCount;
-
-      if (
-        scrollBy > window.pageYOffset - coordY &&
-        window.innerHeight + window.pageYOffset < document.body.offsetHeight
-      ) {
-        window.scrollBy(0, scrollBy);
+anchors.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        let coordY = document.querySelector(item.getAttribute('href')).getBoundingClientRect().top + window.pageYOffset -100;
+    
+        let scroller = setInterval(function() {
+            let scrollBy = coordY / framesCount;
+      
+      if(scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+          window.scrollBy(0, scrollBy);
       } else {
-        window.scrollTo(0, coordY);
+                window.scrollTo(0, coordY);
         clearInterval(scroller);
       }
-    }, animationTime / framesCount);
+        }, animationTime / framesCount);
   });
-});
+}); 
 
+
+//Pagination active
+if(document.querySelector('.pagination_big')) {
+  let paginationItems = document.querySelectorAll('.pagination_big li'),
+      nextVersionContainer = document.querySelector('#nextver'),
+      previosVersionContainer = document.querySelector('#previosver'),
+      currentVersionContainer = document.querySelector('#currversion'),
+      currentPageTitle = document.querySelector('#section').innerText;
+
+  // Set active page and update version containers
+  for (let i = 0; i < paginationItems.length; i++) {
+    const item = paginationItems[i];
+    const itemTitle = item.firstElementChild.innerHTML;
+    if (itemTitle === currentPageTitle) {
+      item.classList.add('active');
+      currentVersionContainer.textContent = itemTitle;       
+      if(item.previousElementSibling) {
+        previosVersionContainer.textContent = item.previousElementSibling.innerText; 
+        previosVersionContainer.parentElement.href += item.previousElementSibling.innerText.replaceAll('.', '_');
+      } else {
+        previosVersionContainer.parentElement.parentElement.classList.add('hide');
+      }
+      if(item.nextElementSibling) {
+        nextVersionContainer.textContent = item.nextElementSibling.innerText;
+        nextVersionContainer.parentElement.href += item.nextElementSibling.innerText.replaceAll('.', '_');
+      } else {
+        nextVersionContainer.parentElement.parentElement.classList.add('hide');
+      }         
+      break;
+    }
+  }
+}
 // copy to clipboard
 if (document.querySelector('.button-copy-s3')) {
   let btnCopy = document.querySelectorAll('.button-copy-s3');
