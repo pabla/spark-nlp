@@ -31,11 +31,11 @@ jobs:
           name: jekyll-build
           path: docs
           if_no_artifact_found: ignore
-      - name: Extract artifacts and prepare incremental build
+      - name: Extract artifacts
         working-directory: docs
         run: >
-          (7z x -o_site/ jekyll-content.zip 
-          && rm jekyll-content.zip 
+          (7z x -o_site/ jekyll-content.zip
+          && rm jekyll-content.zip
           && mv _site/.jekyll-metadata ./
           && mv _site/backup-models.json ./
           && mv _site/backup-benchmarking.json ./
@@ -46,27 +46,33 @@ jobs:
         env:
           ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
           ELASTICSEARCH_ACCESS_TOKEN: ${{ secrets.ELASTICSEARCH_ACCESS_TOKEN }}
+          ELASTICSEARCH_INDEX_NAME: ${{ secrets.ELASTICSEARCH_INDEX_NAME }}
+          SEARCH_ORIGIN: ${{ secrets.SEARCH_ORIGIN }}
         working-directory: docs
         run: |
           bundle exec jekyll build --incremental
-        continue-on-error: ${{ steps.incremental-build.outputs.require_full_build == 'true'}}
+        continue-on-error: ${{ steps.incremental-build.outputs.require_full_build == 'true' }}
       - name: Full build
         id: full-build
         if: ${{ steps.incremental-build.outputs.require_full_build == 'true' }}
         env:
           ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
           ELASTICSEARCH_ACCESS_TOKEN: ${{ secrets.ELASTICSEARCH_ACCESS_TOKEN }}
+          ELASTICSEARCH_INDEX_NAME: ${{ secrets.ELASTICSEARCH_INDEX_NAME }}
+          SEARCH_ORIGIN: ${{ secrets.SEARCH_ORIGIN }}
         working-directory: docs
         run: |
           rm -f .jekyll-metadata
           FULL_BUILD=1 bundle exec jekyll build --incremental
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
           cache: yarn
           cache-dependency-path: docs/_frontend/yarn.lock
       - name: Build frontend
         working-directory: docs/_frontend
+        env:
+          SEARCH_ORIGIN: ${{ secrets.SEARCH_ORIGIN }}
         run: |
           yarn
           yarn run build
@@ -86,7 +92,7 @@ jobs:
             ./docs/backup-benchmarking.json
             ./docs/backup-references.json
           dest: jekyll-content.zip
-      - name: Upload Artifacts
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: jekyll-build

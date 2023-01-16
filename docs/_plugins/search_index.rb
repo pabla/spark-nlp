@@ -6,6 +6,9 @@ require 'date'
 require 'elasticsearch'
 require 'nokogiri'
 
+SEARCH_URL = (ENV["SEARCH_ORIGIN"] || 'https://search.modelshub.johnsnowlabs.com') + '/'
+ELASTICSEARCH_INDEX_NAME = ENV["ELASTICSEARCH_INDEX_NAME"] || 'models'
+
 OUTDATED_EDITIONS = ['Spark NLP 2.0', 'Spark NLP 2.1', 'Healthcare NLP 2.0']
 
 $remote_editions = Set.new
@@ -79,7 +82,7 @@ end
 def editions_changed?(edition)
   if $remote_editions.empty?
     puts "Retrieving remote editions...."
-    uri = URI('https://search.modelshub.johnsnowlabs.com/')
+    uri = URI(SEARCH_URL)
     res = Net::HTTP.get_response(uri)
     if res.is_a?(Net::HTTPSuccess)
       data = JSON.parse(res.body)
@@ -247,7 +250,7 @@ class BulkIndexer
     return nil unless @client
     return nil if @buffer.empty?
     puts "Indexing #{@buffer.length} models..."
-    @client.bulk(index: 'models', body: @buffer)
+    @client.bulk(index: ELASTICSEARCH_INDEX_NAME, body: @buffer)
     @buffer.clear
   end
 end
@@ -388,10 +391,10 @@ unless ENV['ELASTICSEARCH_URL'].to_s.empty?
       },
     },
   )
-  exists =  client.indices.exists index: 'models'
+  exists =  client.indices.exists index: ELASTICSEARCH_INDEX_NAME
   puts "Index already exists: #{exists}"
   unless exists
-    client.indices.create index: 'models', body: {
+    client.indices.create index: ELASTICSEARCH_INDEX_NAME, body: {
        "mappings": {
         "properties": {
             "body": {
@@ -513,7 +516,7 @@ Jekyll::Hooks.register :site, :post_render do |site|
 
   if client and (not is_incremental or ENV["FULL_BUILD"])
     # For full build, remove all documents not in site.posts
-    client.delete_by_query index: 'models', body: {query: {bool: {must_not: {ids: {values: all_posts_id}}}}}
+    client.delete_by_query index: ELASTICSEARCH_INDEX_NAME, body: {query: {bool: {must_not: {ids: {values: all_posts_id}}}}}
   end
 end
 
@@ -572,6 +575,6 @@ Jekyll::Hooks.register :clean, :on_obsolete do |files|
               .select {|v| v.include?('/docs/_site') and v.end_with?('.html')}
               .map {|v| v.split('/docs/_site')[1]}
   if client
-    client.delete_by_query index: 'models', body: {query: {bool: {must: {ids: {values: all_deleted_posts}}}}}
+    client.delete_by_query index: ELASTICSEARCH_INDEX_NAME, body: {query: {bool: {must: {ids: {values: all_deleted_posts}}}}}
   end
 end

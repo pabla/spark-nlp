@@ -1,4 +1,4 @@
-export const SEARCH_ORIGIN = 'http://64.225.77.157:3000';
+export const SEARCH_ORIGIN = process.env.SEARCH_ORIGIN;
 
 export const toSearchString = (params) => {
   const searchParams = Object.keys(params).reduce((acc, k) => {
