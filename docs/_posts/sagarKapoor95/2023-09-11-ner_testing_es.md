@@ -19,17 +19,17 @@ use_language_switcher: "Python-Scala-Java"
 
 ## Description
 
-sss
+dsada
 
 ## Predicted Entities
 
-
+`MONEY`
 
 {:.btn-box}
 <button class="button button-orange" disabled>Live Demo</button>
 <button class="button button-orange" disabled>Open in Colab</button>
-[Download](https://s3.amazonaws.com/models-hub-auxdata/public/models/ner_testing_es_4.3.1_3.2_1694448874374.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
-[Copy S3 URI](s3://models-hub-auxdata/public/models/ner_testing_es_4.3.1_3.2_1694448874374.zip){:.button.button-orange.button-orange-trans.button-icon.button-copy-s3}
+[Download](https://s3.amazonaws.com/models-hub-auxdata/public/models/ner_testing_es_4.3.1_3.2_1694465800851.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
+[Copy S3 URI](s3://models-hub-auxdata/public/models/ner_testing_es_4.3.1_3.2_1694465800851.zip){:.button.button-orange.button-orange-trans.button-icon.button-copy-s3}
 
 ## How to use
 
