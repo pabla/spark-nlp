@@ -1,6 +1,6 @@
 ---
 layout: model
-title: The test title
+title: sdas
 author: John Snow Labs
 name: ner_Clone_Project
 date: 2023-09-11
@@ -19,7 +19,7 @@ use_language_switcher: "Python-Scala-Java"
 
 ## Description
 
-asdasd
+asdas
 
 ## Predicted Entities
 
@@ -28,8 +28,8 @@ asdasd
 {:.btn-box}
 <button class="button button-orange" disabled>Live Demo</button>
 <button class="button button-orange" disabled>Open in Colab</button>
-[Download](https://s3.amazonaws.com/models-hub-auxdata/public/models/ner_Clone_Project_es_4.3.1_3.2_1694431663871.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
-[Copy S3 URI](s3://models-hub-auxdata/public/models/ner_Clone_Project_es_4.3.1_3.2_1694431663871.zip){:.button.button-orange.button-orange-trans.button-icon.button-copy-s3}
+[Download](https://s3.amazonaws.com/models-hub-auxdata/public/models/ner_Clone_Project_es_4.3.1_3.2_1694431802344.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
+[Copy S3 URI](s3://models-hub-auxdata/public/models/ner_Clone_Project_es_4.3.1_3.2_1694431802344.zip){:.button.button-orange.button-orange-trans.button-icon.button-copy-s3}
 
 ## How to use
 
@@ -38,18 +38,10 @@ asdasd
 <div class="tabs-box" markdown="1">
 {% include programmingLanguageSelectScalaPythonNLU.html %}
 ```python
-asdasd
+asdas
 ```
-```scala
-asdasd
-```
+
 </div>
-
-## Results
-
-```bash
-asdasd
-```
 
 {:.model-param}
 ## Model Information
@@ -66,13 +58,3 @@ asdasd
 |Language:|es|
 |Size:|2.5 MB|
 |Dependencies:|glove_100d|
-
-## References
-
-asdasds
-
-## Benchmarking
-
-```bash
-asdasdas
-```
