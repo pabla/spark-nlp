@@ -1,6 +1,6 @@
 ---
 layout: model
-title: This is the Title
+title: This is a title
 author: John Snow Labs
 name: ner_NER_TEST_TRAINING
 date: 2023-09-12
@@ -19,42 +19,31 @@ use_language_switcher: "Python-Scala-Java"
 
 ## Description
 
-This is description
+asdasd
 
 ## Predicted Entities
 
 `MedicalCondition`, `Pathogen`, `Medicine`
 
 {:.btn-box}
-[Live Demo](https://www.youtube.com/){:.button.button-orange}
-[Open in Colab](https://www.youtube.com/){:.button.button-orange.button-orange-trans.co.button-icon}
-[Download](https://s3.amazonaws.com/models-hub-auxdata/public/models/ner_NER_TEST_TRAINING_es_4.3.1_3.2_1694515651066.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
-[Copy S3 URI](s3://models-hub-auxdata/public/models/ner_NER_TEST_TRAINING_es_4.3.1_3.2_1694515651066.zip){:.button.button-orange.button-orange-trans.button-icon.button-copy-s3}
+<button class="button button-orange" disabled>Live Demo</button>
+<button class="button button-orange" disabled>Open in Colab</button>
+[Download](https://s3.amazonaws.com/models-hub-auxdata/public/models/ner_NER_TEST_TRAINING_es_4.3.1_3.2_1694542649073.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
+[Copy S3 URI](s3://models-hub-auxdata/public/models/ner_NER_TEST_TRAINING_es_4.3.1_3.2_1694542649073.zip){:.button.button-orange.button-orange-trans.button-icon.button-copy-s3}
 
 ## How to use
 
-How to Use
+
 
 <div class="tabs-box" markdown="1">
 {% include programmingLanguageSelectScalaPythonNLU.html %}
 ```python
-Python Codeee
+asdasd
 ```
 ```scala
-Scalaa Code
-```
-
-{:.nlu-block}
-```python
-NLUU code
+as
 ```
 </div>
-
-## Results
-
-```bash
-Resultss
-```
 
 {:.model-param}
 ## Model Information
@@ -71,13 +60,3 @@ Resultss
 |Language:|es|
 |Size:|2.5 MB|
 |Dependencies:|glove_100d|
-
-## References
-
-Dataset used in training
-
-## Benchmarking
-
-```bash
-Benchmarkinggg
-```
