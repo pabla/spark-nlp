@@ -1,6 +1,6 @@
 ---
 layout: model
-title: ssss
+title: sss
 author: John Snow Labs
 name: ner_once_testing
 date: 2023-09-17
@@ -19,17 +19,17 @@ use_language_switcher: "Python-Scala-Java"
 
 ## Description
 
-ssss
+sss
 
 ## Predicted Entities
 
 `MONEY`
 
 {:.btn-box}
-[Live Demo](https://johnsnowlabs.atlassian.net/browse/ALAB-4249){:.button.button-orange}
-[Open in Colab](https://johnsnowlabs.atlassian.net/browse/ALAB-4249){:.button.button-orange.button-orange-trans.co.button-icon}
-[Download](https://s3.amazonaws.com/models-hub-auxdata/public/models/ner_once_testing_es_4.3.1_3.2_1694991088222.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
-[Copy S3 URI](s3://models-hub-auxdata/public/models/ner_once_testing_es_4.3.1_3.2_1694991088222.zip){:.button.button-orange.button-orange-trans.button-icon.button-copy-s3}
+<button class="button button-orange" disabled>Live Demo</button>
+<button class="button button-orange" disabled>Open in Colab</button>
+[Download](https://s3.amazonaws.com/models-hub-auxdata/public/models/ner_once_testing_es_4.3.1_3.2_1694991132003.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
+[Copy S3 URI](s3://models-hub-auxdata/public/models/ner_once_testing_es_4.3.1_3.2_1694991132003.zip){:.button.button-orange.button-orange-trans.button-icon.button-copy-s3}
 
 ## How to use
 
@@ -38,7 +38,7 @@ ssss
 <div class="tabs-box" markdown="1">
 {% include programmingLanguageSelectScalaPythonNLU.html %}
 ```python
-ssss
+sss
 ```
 
 </div>
