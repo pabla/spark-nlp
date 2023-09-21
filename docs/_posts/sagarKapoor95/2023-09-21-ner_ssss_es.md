@@ -1,13 +1,13 @@
 ---
 layout: model
-title: sss
+title: dfdsfd
 author: John Snow Labs
 name: ner_ssss
 date: 2023-09-21
 tags: [es, open_source, tensorflow]
 task: Named Entity Recognition
 language: es
-edition: Spark NLP 5.1.0
+edition: Spark NLP 5.0.2
 spark_version: 3.2
 supported: true
 engine: tensorflow
@@ -19,7 +19,7 @@ use_language_switcher: "Python-Scala-Java"
 
 ## Description
 
-sss
+fsfds
 
 ## Predicted Entities
 
@@ -28,8 +28,8 @@ sss
 {:.btn-box}
 <button class="button button-orange" disabled>Live Demo</button>
 <button class="button button-orange" disabled>Open in Colab</button>
-[Download](https://s3.amazonaws.com/models-hub-auxdata/public/models/ner_ssss_es_5.1.0_3.2_1695311415947.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
-[Copy S3 URI](s3://models-hub-auxdata/public/models/ner_ssss_es_5.1.0_3.2_1695311415947.zip){:.button.button-orange.button-orange-trans.button-icon.button-copy-s3}
+[Download](https://s3.amazonaws.com/models-hub-auxdata/public/models/ner_ssss_es_5.0.2_3.2_1695312172282.zip){:.button.button-orange.button-orange-trans.arr.button-icon}
+[Copy S3 URI](s3://models-hub-auxdata/public/models/ner_ssss_es_5.0.2_3.2_1695312172282.zip){:.button.button-orange.button-orange-trans.button-icon.button-copy-s3}
 
 ## How to use
 
@@ -38,7 +38,7 @@ sss
 <div class="tabs-box" markdown="1">
 {% include programmingLanguageSelectScalaPythonNLU.html %}
 ```python
-sss
+fsfsd
 ```
 
 </div>
@@ -50,7 +50,7 @@ sss
 |---|---|
 |Model Name:|ner_ssss|
 |Type:|ner|
-|Compatibility:|Spark NLP 5.1.0+|
+|Compatibility:|Spark NLP 5.0.2+|
 |License:|Open Source|
 |Edition:|Official|
 |Input Labels:|[sentence, token, embeddings]|
