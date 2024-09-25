@@ -7,7 +7,7 @@ date: 2022-06-13
 tags: [open_source, ner, token_classifier, roberta, conll03, en]
 task: Named Entity Recognition
 language: en
-edition: Spark NLP 4.0.0
+edition: Spark NLP 3.7.0
 spark_version: 3.0
 supported: false
 article_header:
@@ -17,7 +17,7 @@ use_language_switcher: "Python-Scala-Java"
 
 ## Description
 
-This pretrained pipeline is built on the top of [roberta_large_token_classifier_conll03](https://nlp.johnsnowlabs.com/2021/09/26/roberta_large_token_classifier_conll03_en.html) model.
+This pretrained pipeline is built on the top of [roberta_large_token_classifier_conll03](https://nlp.johnsnowlabs.com/2021/09/26/roberta_large_token_classifier_conll03_en.html) model. -_-
 
 ## Predicted Entities
 
